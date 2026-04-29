@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 // ── Icon ─────────────────────────────────────────────────────────────────────
 
@@ -470,43 +470,11 @@ function AnalyticsContent() {
   );
 }
 
-// ── HeroPreview (parallax browser) ───────────────────────────────────────────
+// ── HeroPreview (static tilt browser) ───────────────────────────────────────
 
 function HeroPreview() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const el = ref.current;
-    if (!el) return;
-
-    let rafId: number | null = null;
-
-    const handler = (e: MouseEvent) => {
-      if (rafId !== null) return;
-      rafId = requestAnimationFrame(() => {
-        rafId = null;
-        const rect = el.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const rx = (e.clientX - cx) / rect.width;
-        const ry = (e.clientY - cy) / rect.height;
-        const frame = el.querySelector(".browser-frame") as HTMLElement | null;
-        if (frame) {
-          frame.style.transform = `rotateY(${-8 + 2 * rx}deg) rotateX(${4 - 2 * ry}deg)`;
-        }
-      });
-    };
-
-    window.addEventListener("mousemove", handler);
-    return () => {
-      window.removeEventListener("mousemove", handler);
-      if (rafId !== null) cancelAnimationFrame(rafId);
-    };
-  }, []);
-
   return (
-    <div className="hero-preview" ref={ref}>
+    <div className="hero-preview">
       <div className="browser-frame">
         <div className="browser-bar">
           <div className="dots">
@@ -1197,8 +1165,12 @@ function FinalCTASection() {
         <p>Join the waitlist. We&apos;ll reach out when a slot opens for a facility like yours.</p>
         <WaitlistForm location="final_cta" />
         <div style={{ marginTop: 18 }}>
-          <a href="#demo" className="sec-cta-link">
-            or book a demo now <span className="arr">→</span>
+          <a
+            href="#top"
+            className="sec-cta-link"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+          >
+            or join the waitlist now <span className="arr">→</span>
           </a>
         </div>
       </div>

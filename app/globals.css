@@ -191,12 +191,15 @@ h1 {
 .stat-bar span { white-space: nowrap; }
 
 /* ── Hero preview / browser frame ─────────────────── */
-.hero-preview { position: relative; perspective: 1200px; }
+.hero-preview { position: relative; perspective: 1800px; }
 .browser-frame {
   background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 10px;
   overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,.6);
-  transform: rotateY(-4deg) rotateX(2deg);
-  transition: transform .3s ease-out;
+  transform: rotateY(-6deg) rotateX(3deg);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.hero-preview:hover .browser-frame {
+  transform: rotateY(-3deg) rotateX(1.5deg);
 }
 .browser-bar {
   background: var(--bg-elev); display: flex; align-items: center; gap: 12px;

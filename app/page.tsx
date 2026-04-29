@@ -179,7 +179,7 @@ function Nav() {
         </div>
         <div className="nav-cta">
           <a href="#demo" className="btn btn-ghost" onClick={scrollTo("#demo")}>Book a Demo</a>
-          <a href="https://www.solvixlms.com/core/drying" className="btn btn-solid">
+          <a href="https://app.solvixlms.com" className="btn btn-solid">
             Dashboard Login
           </a>
         </div>

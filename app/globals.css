@@ -196,7 +196,7 @@ h1 {
   background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: 10px;
   overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,.6);
   transform: rotateY(-4deg) rotateX(2deg);
-  transition: transform .1s ease-out;
+  transition: transform .3s ease-out;
 }
 .browser-bar {
   background: var(--bg-elev); display: flex; align-items: center; gap: 12px;
@@ -290,7 +290,7 @@ h1 {
 .suite-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 40px; }
 .suite-card {
   background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 24px;
-  position: relative; overflow: hidden; cursor: default;
+  position: relative; overflow: hidden; cursor: pointer;
   transition: border-color .2s, transform .2s;
 }
 .suite-card::before {
@@ -303,6 +303,13 @@ h1 {
 .suite-ic { color: var(--accent-amber); margin-bottom: 12px; }
 .suite-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
 .suite-desc { font-size: 13px; color: var(--text-muted); margin: 0; }
+.suite-expand {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s cubic-bezier(.22,1,.36,1), margin-top .3s;
+  margin-top: 0;
+}
+.suite-card.open .suite-expand { max-height: 200px; margin-top: 12px; }
+.suite-expand p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; padding-top: 10px; border-top: 1px solid var(--border-subtle); }
 .roadmap-row { background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 20px 24px; }
 .roadmap-label { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 14px; }
 .roadmap-items { display: flex; gap: 24px; flex-wrap: wrap; }

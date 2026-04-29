@@ -178,7 +178,7 @@ function Nav() {
           <a href="#company" onClick={scrollTo("#company")}>Company</a>
         </div>
         <div className="nav-cta">
-          <a href="#demo" className="btn btn-ghost">Book a Demo</a>
+          <a href="#demo" className="btn btn-ghost" onClick={scrollTo("#demo")}>Book a Demo</a>
           <a href="https://www.solvixlms.com/core/drying" className="btn btn-solid">
             Dashboard Login
           </a>
@@ -480,20 +480,29 @@ function HeroPreview() {
     const el = ref.current;
     if (!el) return;
 
+    let rafId: number | null = null;
+
     const handler = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const rx = (e.clientX - cx) / rect.width;
-      const ry = (e.clientY - cy) / rect.height;
-      const frame = el.querySelector(".browser-frame") as HTMLElement | null;
-      if (frame) {
-        frame.style.transform = `rotateY(${-8 + 6 * rx}deg) rotateX(${4 - 6 * ry}deg)`;
-      }
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        const rect = el.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const rx = (e.clientX - cx) / rect.width;
+        const ry = (e.clientY - cy) / rect.height;
+        const frame = el.querySelector(".browser-frame") as HTMLElement | null;
+        if (frame) {
+          frame.style.transform = `rotateY(${-8 + 2 * rx}deg) rotateX(${4 - 2 * ry}deg)`;
+        }
+      });
     };
 
     window.addEventListener("mousemove", handler);
-    return () => window.removeEventListener("mousemove", handler);
+    return () => {
+      window.removeEventListener("mousemove", handler);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (
@@ -759,6 +768,8 @@ function WedgeSection() {
 // ── Platform Section ──────────────────────────────────────────────────────────
 
 function PlatformSection() {
+  const [openSuite, setOpenSuite] = useState<string | null>(null);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     e.currentTarget.style.setProperty("--mx", `${e.clientX - rect.left}px`);
@@ -766,13 +777,34 @@ function PlatformSection() {
   };
 
   const suites = [
-    { id: "core" as IconName, n: "SolvCORE", d: "Production & batch intelligence" },
-    { id: "comp" as IconName, n: "SolvCOMP", d: "Compliance & inventory" },
-    { id: "erp" as IconName, n: "SolvERP", d: "Consumables & operations" },
-    { id: "client" as IconName, n: "SolvCLIENT", d: "Client portal & split contracts" },
-    { id: "lytics" as IconName, n: "SolvLYTICS", d: "Analytics & intelligence" },
-    { id: "flow" as IconName, n: "SolvFLOW", d: "Workflow & scheduling" },
-    { id: "comm" as IconName, n: "SolvCOMM", d: "Command center" },
+    {
+      id: "core" as IconName, n: "SolvCORE", d: "Production & batch intelligence",
+      detail: "Track every wash, dry, collection, and press at parameter depth. Capture wash temperature curves, micron fraction yields, press profiles, and technician attribution per batch. Institutional knowledge that compounds instead of evaporating.",
+    },
+    {
+      id: "comp" as IconName, n: "SolvCOMP", d: "Compliance & inventory",
+      detail: "Lot-level tracking, license trails, and Metrc-compatible reporting — produced as a byproduct of running your operation. COA tracking, contamination alerts, and audit trails on every record.",
+    },
+    {
+      id: "erp" as IconName, n: "SolvERP", d: "Consumables & operations",
+      detail: "Track consumables, packaging, and operational costs tied to the batches that use them. Cost-per-gram analysis, procurement tracking, and staff management.",
+    },
+    {
+      id: "client" as IconName, n: "SolvCLIENT", d: "Client portal & split contracts",
+      detail: "Give your clients real-time visibility into their material. Split-contract support for toll processing, automated yield notifications, and client-specific reporting.",
+    },
+    {
+      id: "lytics" as IconName, n: "SolvLYTICS", d: "Analytics & intelligence",
+      detail: "Yield trending by strain, technician performance benchmarking, cost-per-gram drill-downs, and production throughput dashboards — all from your own data.",
+    },
+    {
+      id: "flow" as IconName, n: "SolvFLOW", d: "Workflow & scheduling",
+      detail: "Plan production runs, assign equipment and technicians, identify bottlenecks, and see your facility's capacity at a glance.",
+    },
+    {
+      id: "comm" as IconName, n: "SolvCOMM", d: "Command center",
+      detail: "Your facility's nerve center. Real-time batch status, active alerts, staff notifications, and shift handoff summaries in one view.",
+    },
   ];
 
   return (
@@ -787,15 +819,41 @@ function PlatformSection() {
           you need. Add the rest when you&apos;re ready.
         </p>
         <div className="suite-grid">
-          {suites.map((suite) => (
-            <div className="suite-card" key={suite.id} onMouseMove={handleMouseMove}>
-              <div className="suite-ic">
-                <Icon name={suite.id} size={18} />
+          {suites.map((suite) => {
+            const isOpen = openSuite === suite.id;
+            return (
+              <div
+                className={"suite-card" + (isOpen ? " open" : "")}
+                key={suite.id}
+                onMouseMove={handleMouseMove}
+                onClick={() => setOpenSuite(isOpen ? null : suite.id)}
+                role="button"
+                aria-expanded={isOpen}
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && setOpenSuite(isOpen ? null : suite.id)}
+              >
+                <div className="suite-ic">
+                  <Icon name={suite.id} size={18} />
+                </div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
+                  <div className="suite-name">{suite.n}</div>
+                  <span style={{
+                    color: "var(--text-dim)",
+                    transition: "transform 0.3s",
+                    transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    flexShrink: 0,
+                    lineHeight: 0,
+                  }}>
+                    <Icon name="chev" size={14} stroke={2} />
+                  </span>
+                </div>
+                <p className="suite-desc">{suite.d}</p>
+                <div className="suite-expand">
+                  <p className="suite-desc">{suite.detail}</p>
+                </div>
               </div>
-              <div className="suite-name">{suite.n}</div>
-              <p className="suite-desc">{suite.d}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="roadmap-row">
           <div className="roadmap-label mono">On the roadmap</div>

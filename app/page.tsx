@@ -173,7 +173,7 @@ function Nav() {
         </a>
         <div className="nav-links">
           <a href="/platform">Platform</a>
-          <a href="#pricing" onClick={scrollTo("#pricing")}>Pricing</a>
+          <a href="/pricing">Pricing</a>
           <a href="#resources" onClick={scrollTo("#resources")}>Resources</a>
           <a href="#company" onClick={scrollTo("#company")}>Company</a>
         </div>

@@ -203,18 +203,36 @@ function WaitlistForm({ location = "hero" }: { location?: string }) {
       return;
     }
     setStatus("loading");
+    const source = location === "final_cta" ? "cta" : location;
     try {
-      await new Promise((r) => setTimeout(r, 600));
-      (window as { dataLayer?: unknown[] }).dataLayer =
-        (window as { dataLayer?: unknown[] }).dataLayer || [];
-      ((window as { dataLayer?: unknown[] }).dataLayer as unknown[]).push({
-        event: "waitlist_submit",
-        form_location: location,
+      const res = await fetch("https://app.solvixlms.com/api/v1/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source }),
       });
-      setStatus("success");
+
+      if (res.ok) {
+        (window as { dataLayer?: unknown[] }).dataLayer =
+          (window as { dataLayer?: unknown[] }).dataLayer || [];
+        ((window as { dataLayer?: unknown[] }).dataLayer as unknown[]).push({
+          event: "waitlist_submit",
+          form_location: location,
+        });
+        setStatus("success");
+        setEmail("");
+      } else if (res.status === 429) {
+        setStatus("idle");
+        setError("Too many requests. Please try again later.");
+      } else if (res.status === 400) {
+        setStatus("idle");
+        setError("Please enter a valid email address.");
+      } else {
+        setStatus("idle");
+        setError("Something went wrong. Please try again.");
+      }
     } catch {
       setStatus("idle");
-      setError("Something went wrong. Please try again.");
+      setError("Unable to connect. Please try again.");
     }
   };
 

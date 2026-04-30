@@ -174,7 +174,7 @@ function Nav() {
         <div className="nav-links">
           <a href="/platform">Platform</a>
           <a href="/pricing">Pricing</a>
-          <a href="#resources" onClick={scrollTo("#resources")}>Resources</a>
+          <a href="/faq">Resources</a>
           <a href="#company" onClick={scrollTo("#company")}>Company</a>
         </div>
         <div className="nav-cta">

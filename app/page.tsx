@@ -175,7 +175,7 @@ function Nav() {
           <a href="/platform">Platform</a>
           <a href="/pricing">Pricing</a>
           <a href="/faq">Resources</a>
-          <a href="#company" onClick={scrollTo("#company")}>Company</a>
+          <a href="/about">Company</a>
         </div>
         <div className="nav-cta">
           <a href="#demo" className="btn btn-ghost" onClick={scrollTo("#demo")}>Book a Demo</a>

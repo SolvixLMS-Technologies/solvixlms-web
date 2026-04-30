@@ -40,7 +40,7 @@ function Nav() {
           <a href="/platform">Platform</a>
           <a href="/pricing">Pricing</a>
           <a href="/faq" style={{ color: "var(--accent-amber)" }}>Resources</a>
-          <a href="/#company">Company</a>
+          <a href="/about">Company</a>
         </div>
         <div className="nav-cta">
           <a href="/#demo" className="btn btn-ghost">Book a Demo</a>

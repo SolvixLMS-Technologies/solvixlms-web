@@ -47,7 +47,7 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
             founder: {
               "@type": "Person",
               name: "Joe Neihart",
-              jobTitle: "Founder, CEO & CMO",
+              jobTitle: "Founder & President",
             },
           }),
         }}

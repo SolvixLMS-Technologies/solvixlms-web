@@ -117,26 +117,28 @@ const PRINCIPLES = [
   },
 ];
 
-// ── Team data ─────────────────────────────────────────────────────────────────
+// ── Founder stat cards ────────────────────────────────────────────────────────
 
-const TEAM = [
+const FOUNDER_STATS: { label: string; value: string; desc: string }[] = [
   {
-    initials: "JN",
-    name: "Joe Neihart",
-    role: "Founder · CEO & CMO",
-    bio: "Joe built SolvixLMS from the production floor of one of the largest solventless extraction operations in the country. Before founding the company, he managed multi-million dollar extraction facilities and saw firsthand how much institutional knowledge was being lost to spreadsheets and disconnected tools. He designed SolvixLMS to capture that knowledge at parameter depth.",
+    label: "OPERATOR",
+    value: "5 yrs",
+    desc: "Solventless cannabis extraction, Oklahoma medical license.",
   },
   {
-    initials: "JB",
-    name: "Joseph Babiak",
-    role: "CEO · Growth Stalk Holdings",
-    bio: "Joseph leads Growth Stalk Holdings Corp (OTC: GSTK), the publicly traded parent company of SolvixLMS Technologies. He brings executive leadership and public markets experience to the SolvixLMS mission, ensuring the company has the corporate structure and investor confidence to scale.",
+    label: "BUILDER",
+    value: "$400K / mo",
+    desc: "Prior cannabis processing build & scale.",
   },
   {
-    initials: "JT",
-    name: "Jay Tharian",
-    role: "Chief Technology Officer",
-    bio: "Jay leads the technical architecture and engineering behind SolvixLMS. From the multi-tenant PostgreSQL data model to the real-time production dashboards, he ensures the platform is built for reliability, security, and scale.",
+    label: "PROJECT MGMT",
+    value: "8 yrs",
+    desc: "Construction company. Operational discipline.",
+  },
+  {
+    label: "CYBER / INTEL",
+    value: "USMC",
+    desc: "Marine veteran. Intel & cybersec academic background.",
   },
 ];
 
@@ -243,20 +245,93 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── Team ────────────────────────────────────────── */}
+        {/* ── Founder ─────────────────────────────────────── */}
         <section className="reveal" style={{ padding: "0 0 80px" }} id="company">
           <div className="container">
-            <div className="section-tag mono">// THE TEAM</div>
-            <h2 className="section-h">The people behind the platform.</h2>
-            <div className="team-grid">
-              {TEAM.map((member) => (
-                <div key={member.name} className="tm-card">
-                  <div className="av">{member.initials}</div>
-                  <div className="nm">{member.name}</div>
-                  <div className="rl">{member.role}</div>
-                  <p className="bio">{member.bio}</p>
+            <div className="section-tag mono">// THE FOUNDER</div>
+            <h2 className="section-h">The person behind the platform.</h2>
+            <div
+              style={{
+                background: "var(--bg-card)",
+                border: "1px solid var(--border-subtle)",
+                borderRadius: 12,
+                padding: "28px 32px 32px",
+                marginTop: 12,
+              }}
+            >
+              <div style={{ marginBottom: 24 }}>
+                <div
+                  className="mono"
+                  style={{
+                    fontSize: 13,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "var(--accent-amber)",
+                    marginBottom: 4,
+                  }}
+                >
+                  Joe Neihart
                 </div>
-              ))}
+                <div
+                  style={{
+                    fontSize: 14,
+                    color: "var(--text-muted)",
+                    fontWeight: 500,
+                  }}
+                >
+                  Founder &amp; President, SolvixLMS
+                </div>
+              </div>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                  gap: 16,
+                }}
+              >
+                {FOUNDER_STATS.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="plat-suite-card"
+                    style={{ cursor: "default" }}
+                  >
+                    <div
+                      className="mono"
+                      style={{
+                        fontSize: 10,
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        color: "var(--text-dim)",
+                        marginBottom: 6,
+                      }}
+                    >
+                      {stat.label}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: "clamp(1.25rem, 2vw, 1.6rem)",
+                        fontWeight: 600,
+                        color: "var(--text-primary)",
+                        lineHeight: 1.2,
+                        marginBottom: 8,
+                        fontFamily: "Instrument Serif, serif",
+                      }}
+                    >
+                      {stat.value}
+                    </div>
+                    <p
+                      style={{
+                        color: "var(--text-muted)",
+                        fontSize: 13,
+                        lineHeight: 1.6,
+                        margin: 0,
+                      }}
+                    >
+                      {stat.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

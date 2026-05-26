@@ -1054,32 +1054,14 @@ function TeamSection() {
       <div className="container">
         <div className="section-tag mono">// Built by Operators</div>
         <h2 className="section-h">From the production floor, not a conference room.</h2>
-        <div className="team-grid">
+        <div className="team-grid" style={{ gridTemplateColumns: "1fr", maxWidth: 400, margin: "40px auto" }}>
           <div className="tm-card">
             <div className="av">JN</div>
             <div className="nm">Joe Neihart</div>
-            <div className="rl">Founder · CEO &amp; CMO</div>
+            <div className="rl">Founder &amp; President</div>
             <p className="bio">
               USMC veteran. Operates one of the largest solventless extraction facilities in the
               U.S. Built SolvixLMS to solve his own production problems.
-            </p>
-          </div>
-          <div className="tm-card">
-            <div className="av">JB</div>
-            <div className="nm">Joseph Babiak</div>
-            <div className="rl">CEO · Growth Stalk Holdings</div>
-            <p className="bio">
-              Manufacturing, SaaS, and M&amp;A leadership. Brings public-company operating
-              discipline to the platform.
-            </p>
-          </div>
-          <div className="tm-card">
-            <div className="av">JT</div>
-            <div className="nm">Jay Tharian</div>
-            <div className="rl">Chief Technology Officer</div>
-            <p className="bio">
-              Platform architect. React, TypeScript, Node.js, PostgreSQL. Builds systems that scale
-              with the facility.
             </p>
           </div>
         </div>

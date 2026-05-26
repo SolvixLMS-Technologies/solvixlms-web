@@ -1054,7 +1054,7 @@ function TeamSection() {
       <div className="container">
         <div className="section-tag mono">// Built by Operators</div>
         <h2 className="section-h">From the production floor, not a conference room.</h2>
-        <div className="team-grid">
+        <div className="team-grid" style={{ gridTemplateColumns: "1fr", maxWidth: 400, margin: "40px auto" }}>
           <div className="tm-card">
             <div className="av">JN</div>
             <div className="nm">Joe Neihart</div>

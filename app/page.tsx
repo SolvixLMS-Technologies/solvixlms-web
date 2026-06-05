@@ -1002,28 +1002,22 @@ function PricingSection() {
         <h2 className="section-h">Simple plans. Serious power.</h2>
         <div className="price-grid">
           <div className="price-card">
-            <div className="tier">Core+</div>
-            <div className="pr">$499<small>/mo</small></div>
-            <p className="pos">Core extraction suite</p>
+            <div className="tier">Essentials</div>
+            <div className="pr">$599<small>/mo</small></div>
+            <p className="pos">The essential OS for solventless and secondary processing.</p>
             <div className="forz"><span>For</span>Small-to-mid facilities replacing spreadsheets.</div>
-          </div>
-          <div className="price-card">
-            <div className="tier">Advanced</div>
-            <div className="pr">$749<small>/mo</small></div>
-            <p className="pos">Adds ERP + client portal</p>
-            <div className="forz"><span>For</span>Growing operations needing inventory and client transparency.</div>
           </div>
           <div className="price-card popular">
             <div className="badge">Most Popular</div>
             <div className="tier" style={{ color: "#F4B942" }}>Professional</div>
             <div className="pr">$999<small>/mo</small></div>
-            <p className="pos">Full suite + analytics</p>
-            <div className="forz"><span>For</span>Mid-to-large labs running full intelligence and compliance.</div>
+            <p className="pos">The full operations platform with analytics and client transparency.</p>
+            <div className="forz"><span>For</span>Growing labs needing inventory, client portal, and intelligence.</div>
           </div>
           <div className="price-card">
             <div className="tier">Enterprise</div>
             <div className="pr">$1,499<small>/mo</small></div>
-            <p className="pos">Everything + SolvAI &amp; SNC</p>
+            <p className="pos">The complete smart-lab ecosystem.</p>
             <div className="forz"><span>For</span>Multi-site operators running advanced automation.</div>
           </div>
         </div>

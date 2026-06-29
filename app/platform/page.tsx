@@ -82,7 +82,6 @@ function Footer() {
           <img src="/assets/solvix-main-gray.svg" alt="SolvixLMS" className="footer-logo"
             style={{ width: 200, height: "auto", display: "block", marginBottom: 18 }} />
           <div className="tag">Built from the production floor.</div>
-          <div className="sub">A subsidiary of Growth Stalk Holdings Corp (OTC: GSTK).</div>
         </div>
         <div className="footer-col">
           <h5>Platform</h5>
@@ -119,8 +118,6 @@ function Footer() {
         <div className="links">
           <a href="/#disclaimers">Privacy</a>
           <a href="/#disclaimers">Terms</a>
-          <a href="https://www.sec.gov/cgi-bin/browse-edgar?company=growth+stalk&CIK=&type=&dateb=&owner=include&count=40&search_text=&action=getcompany"
-            target="_blank" rel="noreferrer">SEC Filings</a>
           <a href="/#disclaimers">Forward-looking statements</a>
         </div>
       </div>

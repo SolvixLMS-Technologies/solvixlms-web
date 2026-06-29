@@ -3,15 +3,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About SolvixLMS — Built by Operators, for Operators",
   description:
-    "SolvixLMS Technologies Inc. is a majority-owned subsidiary of Growth Stalk Holdings Corp (OTC: GSTK). Built by operators who got tired of running multi-million dollar facilities on spreadsheets.",
+    "SolvixLMS Technologies Inc. builds lab management software for modern, regulated labs. Built by operators who got tired of running multi-million dollar facilities on spreadsheets.",
   keywords:
-    "SolvixLMS company,lab software company,Growth Stalk Holdings,GSTK,laboratory technology company,SolvixLMS team,lab management technology",
+    "SolvixLMS company,lab software company,laboratory technology company,SolvixLMS team,lab management technology",
   robots: "index, follow, max-image-preview:large, max-snippet:-1",
   alternates: { canonical: "https://www.solvixlms.com/about" },
   openGraph: {
     title: "About SolvixLMS — Built by Operators, for Operators",
     description:
-      "Built on the production floor of one of the highest-volume production facilities in its category. A majority-owned subsidiary of Growth Stalk Holdings Corp (OTC: GSTK).",
+      "Built on the production floor of one of the highest-volume production facilities in its category.",
     url: "https://www.solvixlms.com/about",
     siteName: "SolvixLMS",
     images: [{ url: "https://www.solvixlms.com/assets/solvix-main-gray.svg", alt: "About SolvixLMS" }],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About SolvixLMS — Built by Operators, for Operators",
     description:
-      "Built on the production floor. Backed by Growth Stalk Holdings Corp (OTC: GSTK).",
+      "Built on the production floor — by operators, for operators.",
     images: ["https://www.solvixlms.com/assets/solvix-main-gray.svg"],
   },
 };
@@ -39,11 +39,6 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
             url: "https://www.solvixlms.com",
             description:
               "Operations management platform for modern, regulated labs. Seven integrated suites covering production, compliance, analytics, client management, and more.",
-            parentOrganization: {
-              "@type": "Corporation",
-              name: "Growth Stalk Holdings Corp",
-              tickerSymbol: "OTC:GSTK",
-            },
             founder: {
               "@type": "Person",
               name: "Joe Neihart",

@@ -430,12 +430,6 @@ h1 {
 .tm-card .nm { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
 .tm-card .rl { font-size: 12px; color: var(--accent-amber); margin-bottom: 12px; font-weight: 500; }
 .bio { font-size: 14px; line-height: 1.65; color: var(--text-muted); margin: 0; }
-.gstk-bar {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
-  padding: 16px 20px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: 10px;
-  font-size: 13px; color: var(--text-muted);
-}
-.gstk-bar strong { color: var(--text-secondary); }
 .divider { color: var(--border-strong); }
 
 /* ── FAQ ───────────────────────────────────────────── */

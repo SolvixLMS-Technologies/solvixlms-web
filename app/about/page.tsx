@@ -49,7 +49,6 @@ function Footer() {
           <img src="/assets/solvix-main-gray.svg" alt="SolvixLMS" className="footer-logo"
             style={{ width: 200, height: "auto", display: "block", marginBottom: 18 }} />
           <div className="tag">Built from the production floor.</div>
-          <div className="sub">A subsidiary of Growth Stalk Holdings Corp (OTC: GSTK).</div>
         </div>
         <div className="footer-col">
           <h5>Platform</h5>
@@ -87,8 +86,6 @@ function Footer() {
         <div className="links">
           <a href="/#disclaimers">Privacy</a>
           <a href="/#disclaimers">Terms</a>
-          <a href="https://www.sec.gov/cgi-bin/browse-edgar?company=growth+stalk&CIK=&type=&dateb=&owner=include&count=40&search_text=&action=getcompany"
-            target="_blank" rel="noreferrer">SEC Filings</a>
           <a href="/#disclaimers">Forward-looking statements</a>
         </div>
       </div>
@@ -332,35 +329,6 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Corporate Structure ─────────────────────────── */}
-        <section style={{ padding: "0 0 80px" }}>
-          <div className="container">
-            <div
-              style={{
-                background: "var(--bg-card)",
-                border: "1px solid var(--border-subtle)",
-                borderRadius: 10,
-                padding: "24px 32px",
-                textAlign: "center",
-              }}
-            >
-              <p
-                className="mono"
-                style={{
-                  fontSize: 12,
-                  letterSpacing: "0.06em",
-                  color: "var(--text-muted)",
-                  margin: 0,
-                  lineHeight: 1.8,
-                }}
-              >
-                SolvixLMS Technologies Inc. is a majority-owned subsidiary of Growth Stalk Holdings Corp
-                {" "}·{" "}OTC: GSTK{" "}·{" "}SEC-Reporting Entity{" "}·{" "}Publicly Traded
-              </p>
             </div>
           </div>
         </section>

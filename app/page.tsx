@@ -601,7 +601,7 @@ function Hero() {
         <div>
           <div className="eyebrow mono">
             <span className="dot" />
-            OTC: GSTK&nbsp;&nbsp;//&nbsp;&nbsp;The Operating System for the Modern Lab
+            The Operating System for the Modern Lab
           </div>
           <h1>
             <span className="sr-only">The modern lab operating system — </span>
@@ -664,10 +664,6 @@ function Strip() {
         <div className="strip-item">
           <div className="l">Patent pending</div>
           <div className="v">USPTO #63/904,128</div>
-        </div>
-        <div className="strip-item">
-          <div className="l">Publicly reporting</div>
-          <div className="v">GSTK · SEC-Reporting Entity</div>
         </div>
       </div>
     </section>
@@ -1065,15 +1061,6 @@ function TeamSection() {
             </p>
           </div>
         </div>
-        <div className="gstk-bar">
-          <strong>A majority-owned subsidiary of Growth Stalk Holdings Corp</strong>
-          <span className="divider">·</span>
-          <span>OTC: GSTK</span>
-          <span className="divider">·</span>
-          <span>SEC-Reporting Entity</span>
-          <span className="divider">·</span>
-          <span>Publicly Traded</span>
-        </div>
       </div>
     </section>
   );
@@ -1193,7 +1180,6 @@ function Footer() {
             style={{ width: 200, height: "auto", display: "block", marginBottom: 18 }}
           />
           <div className="tag">Built from the production floor.</div>
-          <div className="sub">A subsidiary of Growth Stalk Holdings Corp (OTC: GSTK).</div>
         </div>
 
         <div className="footer-col">
@@ -1236,13 +1222,6 @@ function Footer() {
         <div className="links">
           <a href="#disclaimers">Privacy</a>
           <a href="#disclaimers">Terms</a>
-          <a
-            href="https://www.sec.gov/cgi-bin/browse-edgar?company=growth+stalk&CIK=&type=&dateb=&owner=include&count=40&search_text=&action=getcompany"
-            target="_blank"
-            rel="noreferrer"
-          >
-            SEC Filings
-          </a>
           <a href="#disclaimers">Forward-looking statements</a>
         </div>
       </div>

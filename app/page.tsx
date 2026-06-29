@@ -1222,7 +1222,6 @@ function Footer() {
         <div className="links">
           <a href="#disclaimers">Privacy</a>
           <a href="#disclaimers">Terms</a>
-          <a href="#disclaimers">Forward-looking statements</a>
         </div>
       </div>
     </footer>

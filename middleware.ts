@@ -1,13 +1,15 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// TEMPORARY takedown (2026-06-25): reroute the public marketing/investor site
-// (www.solvixlms.com + apex) to the app. 302 = temporary, so this is cleanly
-// reversible while the page is rewritten — delete this file (or empty the matcher)
-// and redeploy to restore. The page source is preserved untouched; this redirect
-// sits in front of it.
+// Takedown LIFTED (2026-06-29): the rewritten marketing site is now public at
+// www.solvixlms.com — this middleware no longer redirects to the app; it passes
+// every request through. Kept in place (not deleted) so re-takedown is a one-line
+// restore: swap the NextResponse.next() below back to
+//   return NextResponse.redirect("https://app.solvixlms.com", 302);
+// The /api/* Auth0 proxy rewrites live in next.config.ts (untouched); the matcher
+// below still excludes /api/, Next internals, and favicon.
 export function middleware(_request: NextRequest) {
-  return NextResponse.redirect("https://app.solvixlms.com", 302);
+  return NextResponse.next();
 }
 
 // Apply to all page traffic. EXCLUDE the /api/* proxy routes (login/logout/callback

@@ -118,8 +118,8 @@ const TABLE_GROUPS: { group: string; rows: { label: string; ess: RowVal; pro: Ro
     group: "Production",
     rows: [
       { label: "Batch tracking", ess: true, pro: true, ent: true },
-      { label: "Wash parameter capture", ess: true, pro: true, ent: true },
-      { label: "Press profiles", ess: true, pro: true, ent: true },
+      { label: "Process parameter capture", ess: true, pro: true, ent: true },
+      { label: "Run profiles", ess: true, pro: true, ent: true },
       { label: "Session monitoring", ess: true, pro: true, ent: true },
     ],
   },
@@ -127,7 +127,7 @@ const TABLE_GROUPS: { group: string; rows: { label: string; ess: RowVal; pro: Ro
     group: "Compliance",
     rows: [
       { label: "Lot tracking", ess: true, pro: true, ent: true },
-      { label: "Metrc-compatible reporting", ess: true, pro: true, ent: true },
+      { label: "Regulatory-compatible reporting", ess: true, pro: true, ent: true },
       { label: "COA tracking", ess: true, pro: true, ent: true },
       { label: "Audit trail", ess: true, pro: true, ent: true },
     ],

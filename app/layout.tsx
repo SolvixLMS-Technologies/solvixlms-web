@@ -2,32 +2,32 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SolvixLMS — The OS for Cannabis Processing",
+  title: "SolvixLMS — The Operating System for the Modern Lab",
   description:
-    "The only platform built to track cannabis production at parameter depth — not just inventory. Purpose-built for extraction. Designed for every processor.",
+    "The only platform built to track your process at parameter depth — not just inventory. Sample and batch tracking, compliance, and analytics for modern, regulated labs.",
   keywords: [
-    "cannabis processing software",
-    "solventless extraction software",
-    "bubble hash tracking",
-    "live rosin production",
-    "cannabis ERP",
-    "extraction lab management",
-    "cannabis compliance software",
+    "lab management software",
+    "laboratory information management system",
+    "LIMS",
+    "sample tracking software",
+    "batch tracking software",
+    "lab workflow management",
+    "lab compliance software",
     "SolvixLMS",
   ],
   openGraph: {
     type: "website",
     url: "https://www.solvixlms.com",
-    title: "SolvixLMS — The OS for Cannabis Processing",
+    title: "SolvixLMS — The Operating System for the Modern Lab",
     description:
-      "The only platform built to track cannabis production at parameter depth. Purpose-built for extraction.",
+      "The only platform built to track your process at parameter depth — not just inventory. Built for modern, regulated labs.",
     siteName: "SolvixLMS",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SolvixLMS — The OS for Cannabis Processing",
+    title: "SolvixLMS — The Operating System for the Modern Lab",
     description:
-      "The only platform built to track cannabis production at parameter depth. Purpose-built for extraction.",
+      "The only platform built to track your process at parameter depth — not just inventory. Built for modern, regulated labs.",
   },
   robots: { index: true, follow: true },
   metadataBase: new URL("https://www.solvixlms.com"),
@@ -62,7 +62,7 @@ export default function RootLayout({
               applicationCategory: "BusinessApplication",
               operatingSystem: "Web",
               description:
-                "Cannabis processing operating system — purpose-built for extraction labs.",
+                "Laboratory operations platform — purpose-built for modern, regulated labs.",
               url: "https://www.solvixlms.com",
               publisher: {
                 "@type": "Organization",

@@ -119,12 +119,12 @@ const CATEGORIES: FaqCategory[] = [
     label: "About SolvixLMS",
     items: [
       {
-        q: "How is SolvixLMS different from Canix, Flourish, or Distru?",
-        a: "Those platforms track inventory and compliance — what you have and where it is. SolvixLMS tracks the process — what happened between receiving flower and shipping concentrate. Wash parameters, press profiles, yield by micron, technician performance. None of that fits in a lot number. That's the category distinction.",
+        q: "How is SolvixLMS different from a typical LIMS or inventory tool?",
+        a: "Those tools track inventory and compliance — what you have and where it is. SolvixLMS tracks the process — what happened between receiving a sample and shipping a result. Process parameters, run profiles, yield by grade, technician performance. None of that fits in a lot number. That's the category distinction.",
       },
       {
-        q: "Can I use SolvixLMS for hydrocarbon, ethanol, or CO₂ extraction?",
-        a: "Yes. The platform is method-agnostic at the process layer. Our initial depth is strongest on solventless because that's where we operate, but the data model accommodates any extraction method.",
+        q: "Can I use SolvixLMS for my specific workflow?",
+        a: "Yes. The platform is method-agnostic at the process layer. Our initial depth is strongest in the areas our own team runs day to day, but the data model accommodates any workflow.",
       },
       {
         q: "Do I need to rip out my current software to try SolvixLMS?",
@@ -153,8 +153,8 @@ const CATEGORIES: FaqCategory[] = [
     label: "Compliance & Integrations",
     items: [
       {
-        q: "Do you integrate with Metrc and state seed-to-sale?",
-        a: "SolvCOMP handles Metrc reporting and produces the outputs state systems require. Full Metrc API integration is in active development; reach out if this is blocking.",
+        q: "Do you integrate with regulatory and state reporting systems?",
+        a: "SolvCOMP produces the outputs state and regulatory systems require. Deeper API integration is in active development; reach out if this is blocking.",
       },
       {
         q: "Is my data secure?",

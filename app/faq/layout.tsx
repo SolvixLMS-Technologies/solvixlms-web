@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SolvixLMS FAQ — Common Questions About Cannabis Extraction Software",
+  title: "SolvixLMS FAQ — Common Questions About Lab Management Software",
   description:
-    "Answers to the most common questions about SolvixLMS: how it compares to Canix and Distru, Metrc integration, onboarding, data security, pricing, and more.",
+    "Answers to the most common questions about SolvixLMS: how it compares to a typical LIMS, regulatory reporting, onboarding, data security, pricing, and more.",
   keywords:
-    "cannabis LIMS FAQ,cannabis software questions,Metrc alternative,cannabis ERP FAQ,solventless software FAQ,SolvixLMS questions,cannabis compliance software FAQ",
+    "lab LIMS FAQ,lab software questions,LIMS comparison,lab ERP FAQ,sample tracking FAQ,SolvixLMS questions,lab compliance software FAQ",
   robots: "index, follow, max-image-preview:large, max-snippet:-1",
   alternates: { canonical: "https://www.solvixlms.com/faq" },
   openGraph: {
-    title: "SolvixLMS FAQ — Common Questions About Cannabis Extraction Software",
+    title: "SolvixLMS FAQ — Common Questions About Lab Management Software",
     description:
-      "Answers to the most common questions: comparisons, Metrc integration, onboarding, data security, pricing, and more.",
+      "Answers to the most common questions: comparisons, regulatory reporting, onboarding, data security, pricing, and more.",
     url: "https://www.solvixlms.com/faq",
     siteName: "SolvixLMS",
     images: [{ url: "https://www.solvixlms.com/assets/solvix-main-gray.svg", alt: "SolvixLMS FAQ" }],
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SolvixLMS FAQ — Common Questions About Cannabis Extraction Software",
+    title: "SolvixLMS FAQ — Common Questions About Lab Management Software",
     description:
-      "Comparisons, Metrc integration, onboarding, data security, pricing — all answered.",
+      "Comparisons, regulatory reporting, onboarding, data security, pricing — all answered.",
     images: ["https://www.solvixlms.com/assets/solvix-main-gray.svg"],
   },
 };
@@ -38,10 +38,10 @@ export default function FaqLayout({ children }: { children: React.ReactNode }) {
             mainEntity: [
               {
                 "@type": "Question",
-                name: "How is SolvixLMS different from Canix, Flourish, or Distru?",
+                name: "How is SolvixLMS different from a typical LIMS or inventory tool?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Those platforms track inventory and compliance — what you have and where it is. SolvixLMS tracks the process — what happened between receiving flower and shipping concentrate. Wash parameters, press profiles, yield by micron, technician performance. None of that fits in a lot number. That's the category distinction.",
+                  text: "Those tools track inventory and compliance — what you have and where it is. SolvixLMS tracks the process — what happened between receiving a sample and shipping a result. Process parameters, run profiles, yield by grade, technician performance. None of that fits in a lot number. That's the category distinction.",
                 },
               },
               {
@@ -70,18 +70,18 @@ export default function FaqLayout({ children }: { children: React.ReactNode }) {
               },
               {
                 "@type": "Question",
-                name: "Do you integrate with Metrc and state seed-to-sale?",
+                name: "Do you integrate with regulatory and state reporting systems?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "SolvCOMP handles Metrc reporting and produces the outputs state systems require. Full Metrc API integration is in active development; reach out if this is blocking.",
+                  text: "SolvCOMP produces the outputs state and regulatory systems require. Deeper API integration is in active development; reach out if this is blocking.",
                 },
               },
               {
                 "@type": "Question",
-                name: "Can I use SolvixLMS for hydrocarbon, ethanol, or CO₂ extraction?",
+                name: "Can I use SolvixLMS for my specific workflow?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Yes. The platform is method-agnostic at the process layer. Our initial depth is strongest on solventless because that's where we operate, but the data model accommodates any extraction method.",
+                  text: "Yes. The platform is method-agnostic at the process layer. Our initial depth is strongest in the areas our own team runs day to day, but the data model accommodates any workflow.",
                 },
               },
               {

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SolvixLMS Platform — Seven Integrated Suites for Cannabis Extraction",
+  title: "SolvixLMS Platform — Seven Integrated Suites for the Modern Lab",
   description:
-    "SolvixLMS replaces spreadsheets and disconnected tools with seven integrated suites: SolvCORE for production tracking, SolvCOMP for compliance, SolvERP for operations, and more. Built for extraction labs.",
+    "SolvixLMS replaces spreadsheets and disconnected tools with seven integrated suites: SolvCORE for production tracking, SolvCOMP for compliance, SolvERP for operations, and more. Built for modern, regulated labs.",
   keywords:
-    "cannabis LIMS,extraction tracking software,cannabis production software,solventless tracking,cannabis ERP,cannabis compliance software,Metrc reporting,cannabis batch tracking,rosin tracking software",
+    "lab LIMS,sample tracking software,lab production software,batch tracking,lab ERP,lab compliance software,regulatory reporting,laboratory batch tracking,process tracking software",
   robots: "index, follow, max-image-preview:large, max-snippet:-1",
   alternates: { canonical: "https://www.solvixlms.com/platform" },
   openGraph: {
@@ -48,12 +48,12 @@ export default function PlatformLayout({
             applicationCategory: "BusinessApplication",
             operatingSystem: "Web",
             description:
-              "Seven integrated suites for cannabis extraction operations: production tracking, compliance, analytics, client portal, inventory, workflow scheduling, and command center.",
+              "Seven integrated suites for modern lab operations: production tracking, compliance, analytics, client portal, inventory, workflow scheduling, and command center.",
             featureList: [
-              "Batch-level extraction process tracking",
-              "Wash temperature and micron yield capture",
-              "Press profile and technician performance analytics",
-              "Metrc-compatible compliance reporting",
+              "Batch-level process tracking",
+              "Process temperature and grade yield capture",
+              "Run profile and technician performance analytics",
+              "Regulatory-compatible compliance reporting",
               "Consumables and cost-per-gram tracking",
               "Client portal with split-contract support",
               "Production workflow and scheduling",

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SolvixLMS Pricing — Plans for Every Extraction Facility",
+  title: "SolvixLMS Pricing — Plans for Every Lab",
   description:
     "Three plans starting at $599/month. Unlimited users on every tier. All core modules included. No per-seat charges. See what's included in Essentials, Professional, and Enterprise.",
   keywords:
-    "cannabis software pricing,extraction software cost,cannabis LIMS pricing,solventless software plans,cannabis ERP pricing,Metrc software cost,cannabis processing subscription",
+    "lab software pricing,LIMS pricing,lab management software cost,sample tracking plans,lab ERP pricing,compliance software cost,laboratory software subscription",
   robots: "index, follow, max-image-preview:large, max-snippet:-1",
   alternates: { canonical: "https://www.solvixlms.com/pricing" },
   openGraph: {
-    title: "SolvixLMS Pricing — Plans for Every Extraction Facility",
+    title: "SolvixLMS Pricing — Plans for Every Lab",
     description:
       "Three plans from $599/mo. Unlimited users. All core modules. No per-seat pricing.",
     url: "https://www.solvixlms.com/pricing",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SolvixLMS Pricing — Plans for Every Extraction Facility",
+    title: "SolvixLMS Pricing — Plans for Every Lab",
     description: "Three plans from $599/mo. Unlimited users. All core modules.",
     images: ["https://www.solvixlms.com/assets/solvix-main-gray.svg"],
   },

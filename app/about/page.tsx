@@ -123,12 +123,12 @@ const FOUNDER_STATS: { label: string; value: string; desc: string }[] = [
   {
     label: "OPERATOR",
     value: "5 yrs",
-    desc: "Solventless cannabis extraction, Oklahoma medical license.",
+    desc: "Regulated production operations, Oklahoma facility license.",
   },
   {
     label: "BUILDER",
     value: "$400K / mo",
-    desc: "Prior cannabis processing build & scale.",
+    desc: "Prior regulated manufacturing build & scale.",
   },
   {
     label: "PROJECT MGMT",
@@ -186,7 +186,7 @@ export default function AboutPage() {
             </h1>
             <p className="section-sub" style={{ maxWidth: 680 }}>
               SolvixLMS didn&apos;t start in a tech incubator. It started on the production floor
-              of one of the largest solventless extraction facilities in the United States — because
+              of one of the highest-volume production facilities in the United States — because
               the software we needed didn&apos;t exist.
             </p>
           </div>
@@ -199,14 +199,14 @@ export default function AboutPage() {
             <h2 className="section-h">We built what we couldn&apos;t find.</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               <p style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "clamp(15px, 1.8vw, 17px)", margin: 0 }}>
-                Every cannabis extraction software on the market was built for inventory and compliance —
-                tracking what you have and where it is. None of them tracked the process. Wash temperatures,
-                micron fraction yields, press profiles, technician performance — the data that actually
+                Every lab software on the market was built for inventory and compliance —
+                tracking what you have and where it is. None of them tracked the process. Process temperatures,
+                fraction and grade yields, run profiles, technician performance — the data that actually
                 determines whether your output is good or bad, consistent or chaotic. That data was living
                 in spreadsheets, group chats, and people&apos;s heads.
               </p>
               <p style={{ color: "var(--text-muted)", lineHeight: 1.8, fontSize: "clamp(15px, 1.8vw, 17px)", margin: 0 }}>
-                SolvixLMS was built to fix that. We designed it inside a live extraction facility, tested
+                SolvixLMS was built to fix that. We designed it inside a live production facility, tested
                 it against real production runs, and refined it based on what operators actually need when
                 they&apos;re wearing gloves and running batches. The result is seven integrated suites that
                 share one data model — no middleware, no sync jobs, no data silos. Production intelligence

@@ -304,7 +304,7 @@ function DonutChart() {
         transform="rotate(-90 80 80)" strokeLinecap="round"
       />
       <text x="80" y="76" textAnchor="middle" fill="#F8FAFC" fontFamily="Instrument Serif" fontSize="20">605g</text>
-      <text x="80" y="94" textAnchor="middle" fill="#94A3B8" fontFamily="JetBrains Mono" fontSize="8" letterSpacing="1">COLLECTED</text>
+      <text x="80" y="94" textAnchor="middle" fill="#94A3B8" fontFamily="JetBrains Mono" fontSize="8" letterSpacing="1">OUTPUT</text>
     </svg>
   );
 }
@@ -345,12 +345,12 @@ function TempCurve() {
 
 function BarChart() {
   const bars = [
-    { n: "Papaya", v: 6.1, c: "#F4B942" },
-    { n: "Carbon", v: 5.4, c: "#FBBF24" },
-    { n: "Berry Fizz", v: 4.9, c: "#D97706" },
-    { n: "Maple", v: 4.3, c: "#B45309" },
-    { n: "Garlic", v: 3.7, c: "#92400e" },
-    { n: "The Hive", v: 3.1, c: "#78350f" },
+    { n: "Batch A", v: 6.1, c: "#F4B942" },
+    { n: "Batch B", v: 5.4, c: "#FBBF24" },
+    { n: "Batch C", v: 4.9, c: "#D97706" },
+    { n: "Batch D", v: 4.3, c: "#B45309" },
+    { n: "Batch E", v: 3.7, c: "#92400e" },
+    { n: "Batch F", v: 3.1, c: "#78350f" },
   ];
   return (
     <svg viewBox="0 0 340 90" style={{ width: "100%", height: "auto" }}>
@@ -396,7 +396,7 @@ function WashSessionContent() {
   return (
     <div className="mini-dash">
       <div className="mini-head">
-        <span>WASH SESSION · <span className="batch">W-032726-024</span></span>
+        <span>PROCESS RUN · <span className="batch">R-032726-024</span></span>
         <span>LIVE</span>
       </div>
       <div className="curve-card">
@@ -405,17 +405,17 @@ function WashSessionContent() {
       </div>
       <div className="tracking-list">
         <div className="tr-row">
-          <span className="lab">WASH_01_73u</span>
+          <span className="lab">STAGE_01_A</span>
           <span className="val">350.09g</span>
           <span className="status ok">done</span>
         </div>
         <div className="tr-row">
-          <span className="lab">WASH_01_45u</span>
+          <span className="lab">STAGE_01_B</span>
           <span className="val">255.09g</span>
           <span className="status ok">done</span>
         </div>
         <div className="tr-row">
-          <span className="lab">DRY_FREEZE_CHAMBER_A</span>
+          <span className="lab">DRY_CHAMBER_A</span>
           <span className="val">-40°F / 72h</span>
           <span className="status run">running</span>
         </div>
@@ -431,23 +431,23 @@ function ComplianceContent() {
     <div>
       <div className="inv-header">
         <span className="mono" style={{ fontSize: 11, color: "#94A3B8" }}>INVENTORY · 102 lots</span>
-        <span className="inv-chip">Metrc sync · 2m ago</span>
+        <span className="inv-chip">Compliance sync · 2m ago</span>
       </div>
       <div className="inv-table">
         <div className="inv-trow head">
-          <span>Lot #</span><span>Type</span><span>Strain</span><span>Remaining</span><span>Status</span>
+          <span>Lot #</span><span>Type</span><span>Sample</span><span>Remaining</span><span>Status</span>
         </div>
         {[
-          { lot: "W-041026-030-ROSIN-001", type: "LIVE_ROSIN", strain: "The Hive", rem: "140.0g" },
-          { lot: "LBH-73u-041326-01", type: "BUBBLE_HASH", strain: "Maple Nectar", rem: "70.0g" },
-          { lot: "LBH-45u-032726-18", type: "BUBBLE_HASH", strain: "Carbon Cut", rem: "158.0g" },
-          { lot: "LBH-73u-032726-17", type: "BUBBLE_HASH", strain: "Papaya", rem: "85.1g" },
-          { lot: "LBH-45u-032726-16", type: "BUBBLE_HASH", strain: "Berry Fizz", rem: "255.1g" },
+          { lot: "B-041026-030-001", type: "BATCH", sample: "Sample 06", rem: "140.0g" },
+          { lot: "B-041326-01", type: "GRADE_A", sample: "Sample 05", rem: "70.0g" },
+          { lot: "B-032726-18", type: "GRADE_B", sample: "Sample 04", rem: "158.0g" },
+          { lot: "B-032726-17", type: "GRADE_A", sample: "Sample 03", rem: "85.1g" },
+          { lot: "B-032726-16", type: "GRADE_B", sample: "Sample 02", rem: "255.1g" },
         ].map((row) => (
           <div className="inv-trow" key={row.lot}>
             <span className="lot">{row.lot}</span>
             <span className="type">{row.type}</span>
-            <span>{row.strain}</span>
+            <span>{row.sample}</span>
             <span>{row.rem}</span>
             <span className="avail">available</span>
           </div>
@@ -470,7 +470,7 @@ function AnalyticsContent() {
         {[
           { l: "Total Batches", v: "30", d: "all time" },
           { l: "Avg Yield", v: "4.84%", d: "+0.18 MoM" },
-          { l: "Total Hash", v: "19.1kg", d: "bubble" },
+          { l: "Total Output", v: "19.1kg", d: "processed" },
           { l: "Cost / g", v: "$3.42", d: "-7% QoQ" },
         ].map((k) => (
           <div className="an-kpi" key={k.l}>
@@ -481,7 +481,7 @@ function AnalyticsContent() {
         ))}
       </div>
       <div className="an-chart">
-        <h5>Yield by strain (rolling 30d) <span className="rng">top 6</span></h5>
+        <h5>Yield by batch (rolling 30d) <span className="rng">top 6</span></h5>
         <BarChart />
       </div>
     </div>
@@ -500,7 +500,7 @@ function HeroPreview() {
           </div>
           <div className="browser-url">
             <Icon name="lock" size={10} stroke={2} />
-            app.solvixlms.com/core/batch/W-032726-024
+            app.solvixlms.com/core/batch/R-032726-024
           </div>
         </div>
         <div className="dash">
@@ -526,16 +526,16 @@ function HeroPreview() {
               <span className="sep">/</span>
               <span>Batch</span>
               <span className="sep">/</span>
-              <span className="cur mono">W-032726-024</span>
+              <span className="cur mono">R-032726-024</span>
             </div>
-            <h3 className="dash-title">Wash 03 · Papaya Live</h3>
+            <h3 className="dash-title">Run 03 · Batch A</h3>
             <div className="dash-sub mono">Session · 03/26/26 · Technician: A. Lee</div>
             <div className="kpi-row">
               {[
-                { l: "Wash Temp", v: "40.0°F", d: "on-target" },
+                { l: "Process Temp", v: "40.0°F", d: "on-target" },
                 { l: "Humidity", v: "45.0%", d: "stable" },
                 { l: "Yield", v: "4.84%", d: "+0.32 vs avg" },
-                { l: "Collected", v: "605.18g", d: "2 microns" },
+                { l: "Output", v: "605.18g", d: "2 fractions" },
               ].map((k) => (
                 <div className="kpi" key={k.l}>
                   <div className="l">{k.l}</div>
@@ -546,21 +546,21 @@ function HeroPreview() {
             </div>
             <div className="chart-card">
               <div className="chart-head">
-                <h4>Micron Distribution</h4>
+                <h4>Fraction Distribution</h4>
                 <span className="range">Session 03·26·26</span>
               </div>
               <DonutChart />
-              <div className="micron-breakdown">
+              <div className="fraction-breakdown">
                 <div className="mb-row">
-                  <span className="lab">73u</span>
+                  <span className="lab">Grade A</span>
                   <span><span className="val">350.09g</span><span className="pct">57.8%</span></span>
                 </div>
                 <div className="mb-row">
-                  <span className="lab">45u</span>
+                  <span className="lab">Grade B</span>
                   <span><span className="val">255.09g</span><span className="pct">42.2%</span></span>
                 </div>
                 <div className="mb-row total">
-                  <span className="lab">Total Collected</span>
+                  <span className="lab">Total Output</span>
                   <span className="val">605.18g</span>
                 </div>
               </div>
@@ -601,10 +601,10 @@ function Hero() {
         <div>
           <div className="eyebrow mono">
             <span className="dot" />
-            OTC: GSTK&nbsp;&nbsp;//&nbsp;&nbsp;The OS for Cannabis Processing
+            OTC: GSTK&nbsp;&nbsp;//&nbsp;&nbsp;The Operating System for the Modern Lab
           </div>
           <h1>
-            <span className="sr-only">The cannabis processing operating system — </span>
+            <span className="sr-only">The modern lab operating system — </span>
             <span className="line" aria-hidden="true">{animWord("They track products.", 150)}</span>
             <span className="line" aria-hidden="true">
               {animWord("We track the", 500)}{" "}
@@ -624,8 +624,8 @@ function Hero() {
             <span className="sr-only">They track products. We track the process.</span>
           </h1>
           <p className="hero-sub">
-            The only platform built to track cannabis production at parameter depth — not just
-            inventory. Purpose-built for extraction. Designed for every processor.
+            The only platform built to track your process at parameter depth — not just
+            inventory. Purpose-built for the lab. Designed for every operation.
           </p>
           <WaitlistForm location="hero" />
           <div className="waitlist-helper">
@@ -655,7 +655,7 @@ function Strip() {
       <div className="strip-inner">
         <div className="strip-item">
           <div className="l">Operator-built</div>
-          <div className="v">One of the largest solventless facilities in the U.S.</div>
+          <div className="v">One of the highest-volume production facilities in its category</div>
         </div>
         <div className="strip-item">
           <div className="l">Proven at scale</div>
@@ -685,8 +685,8 @@ function ProblemSection() {
           Multi-million dollar operations. <em>Running on spreadsheets.</em>
         </h2>
         <p className="section-sub">
-          The cannabis software market is dominated by inventory trackers. None of them understand
-          what happens between receiving flower and shipping concentrate. So operators cobble
+          The lab software market is dominated by inventory trackers. None of them understand
+          what happens between receiving a sample and shipping a result. So operators cobble
           together spreadsheets, whiteboards, group texts, and paper logs — and every batch of
           institutional knowledge dies the moment the run ends.
         </p>
@@ -694,7 +694,7 @@ function ProblemSection() {
           {[
             { sv: "$20K–$100K", sl: "lost per failed batch when process data is missing" },
             { sv: "60–80%", sl: "of shifts spent with gloves on and hands busy" },
-            { sv: "0", sl: "platforms that track extraction at parameter depth" },
+            { sv: "0", sl: "platforms that track your process at parameter depth" },
             { sv: "$0", sl: "intelligence captured from your data after a batch closes" },
           ].map((s) => (
             <div className="stat-card" key={s.sv}>
@@ -723,22 +723,22 @@ function WedgeSection() {
             <h4>What everyone else tracks</h4>
             <ul>
               <li>Product quantity</li>
-              <li>Strain ID</li>
+              <li>Sample ID</li>
               <li>Lot number</li>
               <li>Sale price</li>
-              <li>THC%</li>
+              <li>Final assay value</li>
             </ul>
           </div>
           <div className="wedge-col right">
             <h4>What SolvixLMS tracks</h4>
             <ul>
-              <li>Wash temperature curves</li>
-              <li>Micron fractions</li>
-              <li>Press profiles</li>
-              <li>Yield by strain</li>
+              <li>Process temperature curves</li>
+              <li>Fraction &amp; grade yields</li>
+              <li>Run &amp; stage profiles</li>
+              <li>Yield by batch</li>
               <li>Technician performance</li>
               <li>Split-contract compliance trail</li>
-              <li>Consumable burn per gram</li>
+              <li>Consumable burn per unit</li>
             </ul>
           </div>
         </div>
@@ -765,11 +765,11 @@ function PlatformSection() {
   const suites = [
     {
       id: "core" as IconName, n: "SolvCORE", d: "Production & batch intelligence",
-      detail: "Track every wash, dry, collection, and press at parameter depth. Capture wash temperature curves, micron fraction yields, press profiles, and technician attribution per batch. Institutional knowledge that compounds instead of evaporating.",
+      detail: "Track every stage of every run at parameter depth. Capture process temperature curves, fraction and grade yields, run profiles, and technician attribution per batch. Institutional knowledge that compounds instead of evaporating.",
     },
     {
       id: "comp" as IconName, n: "SolvCOMP", d: "Compliance & inventory",
-      detail: "Lot-level tracking, license trails, and Metrc-compatible reporting — produced as a byproduct of running your operation. COA tracking, contamination alerts, and audit trails on every record.",
+      detail: "Lot-level tracking, license trails, and regulatory-reporting exports — produced as a byproduct of running your operation. COA tracking, contamination alerts, and audit trails on every record.",
     },
     {
       id: "erp" as IconName, n: "SolvERP", d: "Consumables & operations",
@@ -781,7 +781,7 @@ function PlatformSection() {
     },
     {
       id: "lytics" as IconName, n: "SolvLYTICS", d: "Analytics & intelligence",
-      detail: "Yield trending by strain, technician performance benchmarking, cost-per-gram drill-downs, and production throughput dashboards — all from your own data.",
+      detail: "Yield trending by batch, technician performance benchmarking, cost-per-gram drill-downs, and production throughput dashboards — all from your own data.",
     },
     {
       id: "flow" as IconName, n: "SolvFLOW", d: "Workflow & scheduling",
@@ -879,7 +879,7 @@ function ProductSection() {
             <div className="num mono">01 · SolvCORE</div>
             <h3>See your process, not just your output.</h3>
             <p>
-              Every wash, dry, collection, and press — captured per batch. Queryable across strains,
+              Every stage of every run — captured per batch. Queryable across batches,
               technicians, and time. Institutional knowledge that compounds.
             </p>
           </div>
@@ -907,7 +907,7 @@ function ProductSection() {
             <div className="num mono">03 · SolvLYTICS</div>
             <h3>The only intelligence trained on how you actually produce.</h3>
             <p>
-              Cost-per-gram, yield trends, strain profiles, technician performance — from your own
+              Cost-per-gram, yield trends, batch profiles, technician performance — from your own
               runs, not industry averages.
             </p>
           </div>
@@ -966,23 +966,23 @@ function AudienceSection() {
     <section className="reveal">
       <div className="container">
         <div className="section-tag mono">// Who It&apos;s For</div>
-        <h2 className="section-h">Built for extraction. Designed for every processor.</h2>
+        <h2 className="section-h">Built for the lab. Designed for every operation.</h2>
         <div className="aud-grid">
           <div className="aud-card">
             <div className="gloss" />
-            <div className="cat">Extraction Specialists</div>
+            <div className="cat">Process Specialists</div>
             <h3>Process-first. Yield-obsessed.</h3>
             <p>
-              Solventless, hydrocarbon, ethanol, CO₂. Enter through SolvCORE. Lead with process
+              Any method, any workflow. Enter through SolvCORE. Lead with process
               tracking and yield intelligence.
             </p>
           </div>
           <div className="aud-card">
             <div className="gloss" />
-            <div className="cat">General Processors</div>
+            <div className="cat">General Operations</div>
             <h3>Compliance-first. Margin-focused.</h3>
             <p>
-              Secondary manufacturing: vape carts, edibles, topicals, pre-rolls. Enter through
+              Secondary processing and packaging. Enter through
               SolvCOMP + SolvERP. Lead with compliance automation and cost clarity.
             </p>
           </div>
@@ -1004,7 +1004,7 @@ function PricingSection() {
           <div className="price-card">
             <div className="tier">Essentials</div>
             <div className="pr">$599<small>/mo</small></div>
-            <p className="pos">The essential OS for solventless and secondary processing.</p>
+            <p className="pos">The essential OS for sample tracking and secondary processing.</p>
             <div className="forz"><span>For</span>Small-to-mid facilities replacing spreadsheets.</div>
           </div>
           <div className="price-card popular">
@@ -1060,8 +1060,8 @@ function TeamSection() {
             <div className="nm">Joe Neihart</div>
             <div className="rl">Founder &amp; President</div>
             <p className="bio">
-              USMC veteran. Operates one of the largest solventless extraction facilities in the
-              U.S. Built SolvixLMS to solve his own production problems.
+              USMC veteran. Operates one of the highest-volume production facilities in its
+              category. Built SolvixLMS to solve his own production problems.
             </p>
           </div>
         </div>
@@ -1083,12 +1083,12 @@ function TeamSection() {
 
 const FAQ_DATA: [string, string][] = [
   [
-    "How is SolvixLMS different from Canix, Flourish, or Distru?",
-    "Those platforms track inventory and compliance: what you have and where it is. SolvixLMS is purpose-built to track the process — what happens between receiving flower and shipping concentrate. Wash parameters, press profiles, yield by micron, technician performance: the things every processor wants to track but can't. None of that fits in a lot number. That's the category distinction.",
+    "How is SolvixLMS different from a typical LIMS or inventory tool?",
+    "Those tools track inventory and compliance: what you have and where it is. SolvixLMS is purpose-built to track the process — what happens between receiving a sample and shipping a result. Process parameters, run profiles, yield by grade, technician performance: the things every lab wants to track but can't. None of that fits in a lot number. That's the category distinction.",
   ],
   [
     "Do I need to rip out my current software to try SolvixLMS?",
-    "If you're on Distru, Canix, or Flourish — yes. SolvixLMS replaces them with a system purpose-built for processors. State compliance tools like Metrc and BioTrack are different: SolvixLMS integrates with those, not replaces them. SolvCORE is fully ready for solventless operations today; BHO, ethanol, and CO₂ workflows are rolling out next.",
+    "It depends on what you run today. SolvixLMS replaces general inventory and spreadsheet tools with a system purpose-built to track your process. Regulatory and state-reporting systems are different: SolvixLMS integrates with those, not replaces them. SolvCORE is fully production-ready today; additional workflow templates are rolling out next.",
   ],
   [
     "What does onboarding look like?",
@@ -1099,12 +1099,12 @@ const FAQ_DATA: [string, string][] = [
     "Yes. Your data lives in its own private space — no one else can see it. Everything in transit is encrypted. You decide who on your team can see what, and every change is logged so you always have a record of what happened and when. We're working toward SOC 2 certification in 2026 for additional third-party validation.",
   ],
   [
-    "Do you integrate with Metrc and state seed-to-sale systems?",
-    "SolvCOMP handles Metrc reporting and produces the outputs state systems require. Full Metrc API integration is in active development — reach out if this is blocking your evaluation.",
+    "Do you integrate with regulatory and state reporting systems?",
+    "SolvCOMP produces the outputs state and regulatory systems require. Deeper API integrations are in active development — reach out if this is blocking your evaluation.",
   ],
   [
-    "Can I use SolvixLMS for hydrocarbon, ethanol, or CO₂ extraction?",
-    "Solventless is where we run deepest today — that's where our team operates and where the platform is fully production-ready. BHO, ethanol, and CO₂ workflows are rolling out next, built the same way with full process tracking from intake to packaging. Get on the waitlist and tell us your method; we prioritize what our customers need.",
+    "Can I use SolvixLMS for my specific workflow?",
+    "The platform is method-agnostic at the process layer — the data model accommodates any workflow. Our initial depth is strongest in the areas our own team runs day to day; additional workflow templates are rolling out next, built the same way with full process tracking from intake to packaging. Get on the waitlist and tell us your process; we prioritize what our customers need.",
   ],
   [
     "What happens to my data if I cancel?",

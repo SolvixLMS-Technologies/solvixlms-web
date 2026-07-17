@@ -794,7 +794,7 @@ function PlatformSection() {
       <div className="container">
         <div className="section-tag mono">// The Platform</div>
         <h2 className="section-h">
-          Seven suites. One system. <span className="grad-text">Zero</span> integrations to maintain.
+          Seven suites. One system. <span className="grad-text">One data model</span>.
         </h2>
         <p className="section-sub">
           Every suite shares the same data model, the same auth, the same audit trail. Turn on what
@@ -1075,7 +1075,7 @@ const FAQ_DATA: [string, string][] = [
   ],
   [
     "Do I need to rip out my current software to try SolvixLMS?",
-    "It depends on what you run today. SolvixLMS replaces general inventory and spreadsheet tools with a system purpose-built to track your process. Regulatory and state-reporting systems are different: SolvixLMS integrates with those, not replaces them. SolvCORE is fully production-ready today; additional workflow templates are rolling out next.",
+    "It depends on what you run today. SolvixLMS replaces general inventory and spreadsheet tools with a system purpose-built to track your process. Regulatory and state-reporting systems are different: SolvixLMS is designed to integrate with those, not replace them. SolvCORE is fully production-ready today; additional workflow templates are rolling out next.",
   ],
   [
     "What does onboarding look like?",
@@ -1087,7 +1087,7 @@ const FAQ_DATA: [string, string][] = [
   ],
   [
     "Do you integrate with regulatory and state reporting systems?",
-    "SolvCOMP produces the outputs state and regulatory systems require. Deeper API integrations are in active development — reach out if this is blocking your evaluation.",
+    "SolvCOMP produces the outputs state and regulatory systems require. SolvixLMS is designed to integrate with Metrc and BioTrack, with LeafLink marketplace connectivity in development. Reach out if a specific integration is blocking your evaluation.",
   ],
   [
     "Can I use SolvixLMS for my specific workflow?",

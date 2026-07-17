@@ -104,7 +104,7 @@ const PRINCIPLES = [
     body: "Built for gloved hands on the production floor, not for demos in a conference room. Every screen, every workflow, every interaction was designed for people who are actually running batches.",
   },
   {
-    title: "One system, not ten integrations",
+    title: "One system, not ten tools",
     body: "Seven suites sharing one data model. What you enter in SolvCORE is instantly available in SolvCOMP, SolvLYTICS, and everywhere else. No middleware tax.",
   },
   {

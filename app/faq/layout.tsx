@@ -73,7 +73,7 @@ export default function FaqLayout({ children }: { children: React.ReactNode }) {
                 name: "Do you integrate with regulatory and state reporting systems?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "SolvCOMP produces the outputs state and regulatory systems require. Deeper API integration is in active development; reach out if this is blocking.",
+                  text: "SolvCOMP produces the outputs state and regulatory systems require. SolvixLMS is designed to integrate with Metrc and BioTrack, with LeafLink marketplace connectivity in development. Reach out if a specific integration is blocking your evaluation.",
                 },
               },
               {

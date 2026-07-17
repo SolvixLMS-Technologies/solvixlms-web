@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SolvixLMS Platform — Seven Suites, One System",
     description:
-      "Production tracking, compliance, analytics, client portal, workflow scheduling, and more — all sharing one data model. No integrations to maintain.",
+      "Production tracking, compliance, analytics, client portal, workflow scheduling, and more — all sharing one data model. No middleware to maintain.",
     url: "https://www.solvixlms.com/platform",
     siteName: "SolvixLMS",
     images: [

@@ -264,7 +264,7 @@ export default function PlatformPage() {
             <div className="section-tag mono">// THE PLATFORM</div>
             <h1 className="section-h" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", marginBottom: 20 }}>
               Seven suites. One system.{" "}
-              <span className="grad-text">Zero</span> integrations to maintain.
+              <span className="grad-text">One data model</span>.
             </h1>
             <p className="section-sub" style={{ maxWidth: 680 }}>
               Every suite shares the same data model, the same auth, the same audit trail.

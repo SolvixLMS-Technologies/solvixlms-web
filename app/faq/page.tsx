@@ -150,7 +150,7 @@ const CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "Do you integrate with regulatory and state reporting systems?",
-        a: "SolvCOMP produces the outputs state and regulatory systems require. Deeper API integration is in active development; reach out if this is blocking.",
+        a: "SolvCOMP produces the outputs state and regulatory systems require. SolvixLMS is designed to integrate with Metrc and BioTrack, with LeafLink marketplace connectivity in development. Reach out if a specific integration is blocking your evaluation.",
       },
       {
         q: "Is my data secure?",

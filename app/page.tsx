@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 // ── Icon ─────────────────────────────────────────────────────────────────────
 
@@ -631,18 +632,16 @@ function Hero() {
           <div className="waitlist-helper">
             Access invitations sent based on facility fit and onboarding capacity. No spam.
           </div>
-          <a href="#demo" className="sec-cta-link">
-            Prefer a conversation? Book a demo <span className="arr">→</span>
-          </a>
-          <div className="stat-bar mono">
-            <span>7 Live Suites</span>
-            <span>50,000+ lbs processed</span>
-            <span>AI-Native Architecture</span>
-            <span>Patent Pending</span>
+          <div className="hero-cta-alt">
+            <span className="alt-lead">Prefer a conversation?</span>
+            <a href="#demo" className="btn btn-demo">
+              Book a demo <Icon name="arrow" size={15} stroke={2} />
+            </a>
           </div>
         </div>
         <HeroPreview />
       </div>
+      <Strip />
     </header>
   );
 }
@@ -659,7 +658,7 @@ function Strip() {
         </div>
         <div className="strip-item">
           <div className="l">Proven at scale</div>
-          <div className="v">50,000+ lbs processed through the platform</div>
+          <div className="v">Built inside one of the largest production operations in its category</div>
         </div>
         <div className="strip-item">
           <div className="l">Patent pending</div>
@@ -856,6 +855,14 @@ function PlatformSection() {
             ))}
           </div>
         </div>
+        <div className="section-cta-row">
+          <a href="/platform" className="btn btn-solid">
+            View full platform <Icon name="arrow" size={15} stroke={2} />
+          </a>
+          <a href="#demo" className="btn btn-demo">
+            Book a demo <Icon name="arrow" size={15} stroke={2} />
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -991,10 +998,28 @@ function AudienceSection() {
 // ── Pricing Section ───────────────────────────────────────────────────────────
 
 function PricingSection() {
+  const router = useRouter();
+
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  // Whole tile navigates to /pricing. The per-tier CTA inside stops propagation
+  // so it keeps its own destination — nesting a real <a> would be invalid HTML.
+  const tileProps = (tier: string) => ({
+    role: "link" as const,
+    tabIndex: 0,
+    "aria-label": `${tier} plan — see full pricing`,
+    onClick: () => router.push("/pricing"),
+    onKeyDown: (e: React.KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        router.push("/pricing");
+      }
+    },
+  });
 
   return (
     <section className="reveal" id="pricing">
@@ -1010,7 +1035,7 @@ function PricingSection() {
           <span><i>·</i>Data export</span>
         </div>
         <div className="price-grid">
-          <div className="price-card">
+          <div className="price-card clickable" {...tileProps("Essentials")}>
             <div className="tier">Essentials</div>
             <div className="pr">$599<small>/mo</small></div>
             <p className="pos">The essential OS for sample tracking and secondary processing.</p>
@@ -1024,7 +1049,7 @@ function PricingSection() {
               Join the Waitlist
             </a>
           </div>
-          <div className="price-card popular">
+          <div className="price-card popular clickable" {...tileProps("Professional")}>
             <div className="badge">Most Popular</div>
             <div className="tier" style={{ color: "#F4B942" }}>Professional</div>
             <div className="pr">$999<small>/mo</small></div>
@@ -1039,7 +1064,7 @@ function PricingSection() {
               Join the Waitlist <Icon name="arrow" size={15} stroke={2} />
             </a>
           </div>
-          <div className="price-card">
+          <div className="price-card clickable" {...tileProps("Enterprise")}>
             <div className="tier">Enterprise</div>
             <div className="pr">$1,499<small>/mo</small></div>
             <p className="pos">The complete smart-lab ecosystem.</p>
@@ -1048,6 +1073,7 @@ function PricingSection() {
               href="#demo"
               className="btn btn-ghost"
               style={{ width: "100%", justifyContent: "center", marginTop: 20 }}
+              onClick={(e) => e.stopPropagation()}
             >
               Contact Sales
             </a>
@@ -1260,7 +1286,6 @@ export default function Page() {
       <Nav />
       <main id="main">
         <Hero />
-        <Strip />
         <ProductSection />
         <ProblemSection />
         <WedgeSection />

@@ -86,6 +86,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .btn-solid:hover { background: #f5c458; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(244,185,66,.35); }
 .btn-solid:disabled { opacity: .6; cursor: not-allowed; transform: none; box-shadow: none; }
+/* Demo CTA — deliberately a different shape of button from the solid-amber
+   waitlist CTA, so the two read as two distinct actions rather than a pair. */
+.btn-demo {
+  border: 1.5px solid var(--accent-amber); color: var(--accent-amber);
+  background: rgba(244,185,66,.07); font-weight: 600; padding: 9px 20px;
+}
+.btn-demo:hover {
+  background: rgba(244,185,66,.16); color: #FBD57E;
+  border-color: #f5c458; transform: translateY(-1px);
+}
+.btn-sm { padding: 6px 14px; font-size: 13px; }
 .btn-mag { position: relative; overflow: hidden; }
 .btn-mag::after {
   content: ''; position: absolute; inset: 0;
@@ -96,8 +107,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ── Hero ──────────────────────────────────────────── */
 .hero {
-  min-height: 100vh; padding: 120px 32px 80px; position: relative;
-  display: flex; align-items: center; overflow: hidden;
+  min-height: 100vh; padding: 104px 32px 40px; position: relative;
+  display: flex; flex-direction: column; justify-content: center; overflow: hidden;
 }
 .hero-mesh { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .mesh-blob {
@@ -123,7 +134,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero-inner {
   max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%;
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 80px;
+  align-items: center; width: 100%; min-width: 0;
 }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
@@ -254,10 +266,34 @@ h1 {
 .mb-row .pct { color: var(--text-dim); font-size: 9px; margin-left: 6px; }
 
 /* ── Credibility strip ─────────────────────────────── */
-.strip { background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 20px 32px; }
-.strip-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
-.strip-item .l { font-size: 11px; font-weight: 600; color: var(--accent-amber); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px; }
-.strip-item .v { font-size: 13px; color: var(--text-muted); }
+/* USP strip — sits in-band at the foot of the hero (above the fold), rendered as
+   three discrete equal tiles rather than the previous condensed left-aligned row. */
+/* min-width:0 on both the flex child and the grid children: without it their
+   automatic min-content floor keeps the 3-up grid wider than the hero at 375px. */
+.strip { position: relative; z-index: 1; width: 100%; min-width: 0; padding: 0; margin: 44px auto 0; max-width: 1200px; }
+.strip-inner {
+  max-width: 1200px; margin: 0 auto; display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch;
+}
+.strip-item {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px;
+  padding: 18px 20px; min-width: 0; overflow-wrap: break-word;
+  transition: border-color .25s, box-shadow .25s;
+}
+.strip-item:hover { border-color: var(--border-glow); box-shadow: 0 8px 32px rgba(244,185,66,.07); }
+.strip-item .l { font-size: 11px; font-weight: 600; color: var(--accent-amber); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 5px; }
+.strip-item .v { font-size: 13px; line-height: 1.5; color: var(--text-muted); }
+
+/* Hero secondary CTA row (waitlist vs demo) */
+.hero-cta-alt { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+.hero-cta-alt .alt-lead { font-size: 14px; color: var(--text-muted); }
+
+/* Conversion CTA rows appended to sections */
+.section-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
+.suite-cta-row {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border-subtle);
+}
 
 /* ── Sections ──────────────────────────────────────── */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
@@ -398,6 +434,9 @@ h1 {
   position: relative;
 }
 .price-card.popular { border-color: var(--border-glow); background: linear-gradient(160deg, rgba(244,185,66,.06), var(--bg-card)); }
+.price-card.clickable { cursor: pointer; transition: border-color .25s, box-shadow .25s, transform .25s; }
+.price-card.clickable:hover { border-color: var(--border-glow); box-shadow: 0 10px 40px rgba(244,185,66,.09); transform: translateY(-2px); }
+.price-card.clickable:focus-visible { outline: 2px solid var(--accent-amber); outline-offset: 3px; }
 .badge {
   position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
   background: var(--accent-amber); color: #0A0F1E; font-size: 11px; font-weight: 700;
@@ -609,7 +648,7 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-sub
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }
   .hero-preview { display: none; }
   .stat-grid { grid-template-columns: repeat(2,1fr); }
-  .strip-inner { grid-template-columns: repeat(2,1fr); }
+  .strip-inner { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .suite-grid { grid-template-columns: repeat(2,1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
@@ -625,6 +664,12 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-sub
      out of room for the logo plus both CTAs, so the desktop bump stops here. */
   .x-logo { height: 28px !important; }
   .hero { padding: 96px 20px 60px; }
+  /* The "process." word carries a hard-coded 302px width + padding inline (see
+     Hero in page.tsx) for the desktop lockup. Below 768px that fixed box is
+     wider than the viewport and dragged the whole hero — and every width:100%
+     child, including the USP strip — past the right edge. Neutralise it here so
+     desktop keeps its lockup and mobile can shrink. */
+  h1 .grad-text { width: auto !important; margin: 0 !important; padding: 0 0 4px !important; }
   .container { padding: 0 20px; }
   .reveal { padding: 64px 0; }
   .product-row { grid-template-columns: 1fr; direction: ltr; }
@@ -638,7 +683,12 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-sub
   .footer-inner { grid-template-columns: 1fr; gap: 24px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   .section-h { font-size: 1.6rem; }
-  .strip-inner { grid-template-columns: 1fr 1fr; }
+  /* Compact 3-across so all three tiles clear the fold at 375px. */
+  .strip-inner { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; }
+  .strip { margin-top: 24px; }
+  .strip-item { padding: 10px 11px; border-radius: 10px; }
+  .strip-item .l { font-size: 9px; letter-spacing: .04em; margin-bottom: 4px; }
+  .strip-item .v { font-size: 10.5px; line-height: 1.4; }
 }
 @media (max-width: 480px) {
   .stat-grid { grid-template-columns: 1fr; }
@@ -647,4 +697,13 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-sub
   .waitlist-form { flex-direction: column; }
   .waitlist-form input { width: 100%; }
   .roadmap-items { flex-direction: column; }
+  /* Tighten the hero so the USP strip clears a 667px-tall fold. Spacing only —
+     no content is hidden or reordered. */
+  .hero { padding: 78px 20px 24px; }
+  h1 { font-size: 2rem; margin-bottom: 16px; }
+  .eyebrow { margin-bottom: 16px; font-size: 10px; }
+  .hero-sub { font-size: 15px; line-height: 1.55; margin-bottom: 20px; }
+  .waitlist-helper { margin-top: 8px; font-size: 11px; }
+  .hero-cta-alt { margin-top: 12px; }
+  .strip { margin-top: 16px; }
 }

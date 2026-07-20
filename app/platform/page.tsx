@@ -304,6 +304,14 @@ export default function PlatformPage() {
                       <li key={f}>{f}</li>
                     ))}
                   </ul>
+                  <div className="suite-cta-row">
+                    <a href="/#demo" className="btn btn-demo btn-sm">
+                      Book a demo
+                    </a>
+                    <a href="/pricing" className="btn btn-ghost btn-sm">
+                      View pricing
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>

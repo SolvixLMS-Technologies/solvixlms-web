@@ -654,49 +654,15 @@ function Strip() {
       <div className="strip-inner">
         <div className="strip-item">
           <div className="l">Operator-built</div>
-          <div className="v">One of the highest-volume production facilities in its category</div>
+          <div className="v">Built by processors who run the floor — not consultants</div>
         </div>
         <div className="strip-item">
           <div className="l">Proven at scale</div>
-          <div className="v">Built inside one of the largest production operations in its category</div>
+          <div className="v">Hardened in live solventless production, not a demo</div>
         </div>
         <div className="strip-item">
           <div className="l">Patent pending</div>
           <div className="v">USPTO #63/904,128</div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Problem Section ───────────────────────────────────────────────────────────
-
-function ProblemSection() {
-  return (
-    <section className="reveal" id="problem">
-      <div className="container">
-        <div className="section-tag mono">// The Problem</div>
-        <h2 className="section-h">
-          Multi-million dollar operations. <em>Running on spreadsheets.</em>
-        </h2>
-        <p className="section-sub">
-          The lab software market is dominated by inventory trackers. None of them understand
-          what happens between receiving a sample and shipping a result. So operators cobble
-          together spreadsheets, whiteboards, group texts, and paper logs — and every batch of
-          institutional knowledge dies the moment the run ends.
-        </p>
-        <div className="stat-grid">
-          {[
-            { sv: "$20K–$100K", sl: "lost per failed batch when process data is missing" },
-            { sv: "60–80%", sl: "of shifts spent with gloves on and hands busy" },
-            { sv: "0", sl: "platforms that track your process at parameter depth" },
-            { sv: "$0", sl: "intelligence captured from your data after a batch closes" },
-          ].map((s) => (
-            <div className="stat-card" key={s.sv}>
-              <div className="sv">{s.sv}</div>
-              <div className="sl mono">{s.sl}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -713,6 +679,12 @@ function WedgeSection() {
         <h2 className="section-h">
           Inventory is a snapshot. <span className="grad-text">Process</span> is the story.
         </h2>
+        <p className="section-sub">
+          Every other lab platform tracks what you made — quantity, lot, final assay.
+          SolvixLMS captures how you made it: the full process behind every batch, so your
+          best runs become repeatable and your team&apos;s know-how compounds instead of
+          walking out the door.
+        </p>
         <div className="wedge-split">
           <div className="wedge-col">
             <h4>What everyone else tracks</h4>
@@ -760,31 +732,31 @@ function PlatformSection() {
   const suites = [
     {
       id: "core" as IconName, n: "SolvCORE", d: "Production & batch intelligence",
-      detail: "Track every stage of every run at parameter depth. Capture process temperature curves, fraction and grade yields, run profiles, and technician attribution per batch. Institutional knowledge that compounds instead of evaporating.",
+      detail: "Every run captured at parameter depth — process curves, fraction and grade yields, technician attribution, per batch. Your best runs become repeatable, and institutional knowledge compounds instead of walking out the door.",
     },
     {
       id: "comp" as IconName, n: "SolvCOMP", d: "Compliance & inventory",
-      detail: "Lot-level tracking, license trails, and regulatory-reporting exports — produced as a byproduct of running your operation. COA tracking, contamination alerts, and audit trails on every record.",
+      detail: "Lot-level tracking, license trails, and regulatory exports produced automatically as you run — so audit prep is built into the workflow, not a scramble at the end. COA tracking and contamination alerts on every record.",
     },
     {
       id: "erp" as IconName, n: "SolvERP", d: "Consumables & operations",
-      detail: "Track consumables, packaging, and operational costs tied to the batches that use them. Cost-per-gram analysis, procurement tracking, and staff management.",
+      detail: "See exactly what it costs to produce what you sell. Consumables, packaging, and labor tied to the batch that consumed them, down to cost-per-gram — so you price on real numbers, not guesses.",
     },
     {
       id: "client" as IconName, n: "SolvCLIENT", d: "Client portal & split contracts",
-      detail: "Give your clients real-time visibility into their material. Split-contract support for toll processing, automated yield notifications, and client-specific reporting.",
+      detail: "Give toll-processing clients real-time visibility into their material — batch progress, yields, reports — without the phone tag. Built for split contracts, so every party sees exactly their share.",
     },
     {
       id: "lytics" as IconName, n: "SolvLYTICS", d: "Analytics & intelligence",
-      detail: "Yield trending by batch, technician performance benchmarking, cost-per-gram drill-downs, and production throughput dashboards — all from your own data.",
+      detail: "The only analytics trained on how you actually produce, not industry averages. Yield curves, cost-per-gram drill-downs, technician benchmarking — from your own runs, so the next batch beats the last.",
     },
     {
       id: "flow" as IconName, n: "SolvFLOW", d: "Workflow & scheduling",
-      detail: "Plan production runs, assign equipment and technicians, identify bottlenecks, and see your facility's capacity at a glance.",
+      detail: "Replace the whiteboard with a system that doesn't lie. Plan runs, assign equipment and technicians, spot bottlenecks, and see your facility's true capacity at a glance.",
     },
     {
       id: "comm" as IconName, n: "SolvCOMM", d: "Command center",
-      detail: "Your facility's nerve center. Real-time batch status, active alerts, staff notifications, and shift handoff summaries in one view.",
+      detail: "Your facility's nerve center: real-time batch status, active alerts, staff notifications, and shift-handoff summaries in one view — so managers see everything without clicking through six screens.",
     },
   ];
 
@@ -1186,13 +1158,44 @@ function FAQSection() {
 // ── Final CTA ─────────────────────────────────────────────────────────────────
 
 function FinalCTASection() {
+  // Interim wiring (D2 pending): there is no demo-booking mechanism yet, so the
+  // demo CTA routes to the existing one — the waitlist form below it.
+  const toWaitlist = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const input = document.getElementById("wl-final_cta");
+    input?.scrollIntoView({ block: "center", behavior: "smooth" });
+    (input as HTMLInputElement | null)?.focus({ preventScroll: true });
+  };
+
   return (
     <section className="final-cta reveal" id="demo">
       <div className="final-cta-bg" />
       <div className="final-cta-inner">
-        <h2 style={{ letterSpacing: "0px" }}>Your data shouldn&apos;t die with the batch.</h2>
-        <p>Join the waitlist. We&apos;ll reach out when a slot opens for a facility like yours.</p>
-        <WaitlistForm location="final_cta" />
+        <h2 style={{ letterSpacing: "0px" }}>
+          See exactly what SolvixLMS can do for your facility.
+        </h2>
+        <div className="conv-paths">
+          <div className="conv-path primary">
+            <div className="conv-label mono">Book a demo</div>
+            <p className="conv-lead">
+              Get a personalized walkthrough tailored to your operation.
+            </p>
+            <p className="conv-detail">
+              You&apos;ll get a walkthrough of the platform, a demonstration tailored to your
+              lab&apos;s operations, and time to ask questions and talk through implementation.
+            </p>
+            <a href="#demo" className="btn btn-demo" onClick={toWaitlist}>
+              Book a Demo <Icon name="arrow" size={15} stroke={2} />
+            </a>
+          </div>
+          <div className="conv-path">
+            <div className="conv-label mono">Join the waitlist</div>
+            <p className="conv-lead">
+              Not ready yet? Get early access and launch updates — no commitment.
+            </p>
+            <WaitlistForm location="final_cta" />
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -1286,10 +1289,9 @@ export default function Page() {
       <Nav />
       <main id="main">
         <Hero />
-        <ProductSection />
-        <ProblemSection />
         <WedgeSection />
         <PlatformSection />
+        <ProductSection />
         <FlywheelSection />
         <AudienceSection />
         <PricingSection />

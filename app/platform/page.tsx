@@ -367,16 +367,31 @@ export default function PlatformPage() {
         <section className="final-cta reveal">
           <div className="final-cta-bg" />
           <div className="final-cta-inner">
-            <h2 style={{ letterSpacing: "0px" }}>Ready to see your operation clearly?</h2>
-            <p>
-              Join the waitlist. We onboard facilities based on fit and capacity — no spam, no
-              pressure.
-            </p>
-            <div className="plat-cta-row" style={{ justifyContent: "center" }}>
-              <a href="/#top" className="btn btn-solid">
-                Join the Waitlist <Icon name="arrow" size={16} stroke={2} />
-              </a>
-              <a href="/#demo" className="btn btn-ghost">Book a Demo</a>
+            <h2 style={{ letterSpacing: "0px" }}>
+              See exactly what SolvixLMS can do for your facility.
+            </h2>
+            <div className="conv-paths">
+              <div className="conv-path primary">
+                <div className="conv-label mono">Book a demo</div>
+                <p className="conv-lead">
+                  Get a personalized walkthrough tailored to your operation.
+                </p>
+                <p className="conv-detail">
+                  You&apos;ll get a walkthrough of the platform, a demonstration tailored to
+                  your lab&apos;s operations, and time to ask questions and talk through
+                  implementation.
+                </p>
+                <a href="/#demo" className="btn btn-demo">
+                  Book a Demo <Icon name="arrow" size={15} stroke={2} />
+                </a>
+              </div>
+              <div className="conv-path">
+                <div className="conv-label mono">Join the waitlist</div>
+                <p className="conv-lead">
+                  Not ready yet? Get early access and launch updates — no commitment.
+                </p>
+                <a href="/#top" className="btn btn-ghost">Join the Waitlist</a>
+              </div>
             </div>
           </div>
         </section>

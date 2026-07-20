@@ -337,21 +337,34 @@ export default function AboutPage() {
           <div className="final-cta-bg" />
           <div className="final-cta-inner">
             <h2 style={{ letterSpacing: "0px" }}>
-              Want to learn more?
+              See exactly what SolvixLMS can do for your facility.
             </h2>
-            <p>
-              Book a demo or join the waitlist. We&apos;ll show you what SolvixLMS looks like
-              for a facility like yours.
-            </p>
-            <div className="plat-cta-row" style={{ justifyContent: "center" }}>
-              <a href="/#top" className="btn btn-solid">
-                Join the Waitlist{" "}
-                <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-              </a>
-              <a href="/#demo" className="btn btn-ghost">Book a Demo</a>
+            <div className="conv-paths">
+              <div className="conv-path primary">
+                <div className="conv-label mono">Book a demo</div>
+                <p className="conv-lead">
+                  Get a personalized walkthrough tailored to your operation.
+                </p>
+                <p className="conv-detail">
+                  You&apos;ll get a walkthrough of the platform, a demonstration tailored to
+                  your lab&apos;s operations, and time to ask questions and talk through
+                  implementation.
+                </p>
+                <a href="/#demo" className="btn btn-demo">
+                  Book a Demo{" "}
+                  <svg width={15} height={15} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+              <div className="conv-path">
+                <div className="conv-label mono">Join the waitlist</div>
+                <p className="conv-lead">
+                  Not ready yet? Get early access and launch updates — no commitment.
+                </p>
+                <a href="/#top" className="btn btn-ghost">Join the Waitlist</a>
+              </div>
             </div>
           </div>
         </section>

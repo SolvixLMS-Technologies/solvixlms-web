@@ -191,16 +191,6 @@ h1 {
 .waitlist-success span { color: var(--text-muted); font-size: 13px; }
 .waitlist-error { color: #f87171; font-size: 13px; margin-top: 6px; }
 .waitlist-helper { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
-.sec-cta-link { font-size: 14px; color: var(--text-muted); display: inline-block; margin-top: 14px; transition: color .2s; }
-.sec-cta-link:hover { color: var(--accent-amber); }
-.arr { display: inline-block; transition: transform .2s; }
-.sec-cta-link:hover .arr { transform: translateX(4px); }
-.stat-bar {
-  display: flex; flex-wrap: wrap; gap: 20px; margin-top: 28px;
-  padding-top: 24px; border-top: 1px solid var(--border-subtle);
-  font-size: 12px; color: var(--text-dim);
-}
-.stat-bar span { white-space: nowrap; }
 
 /* ── Hero preview / browser frame ─────────────────── */
 .hero-preview { position: relative; }
@@ -288,6 +278,33 @@ h1 {
 .hero-cta-alt { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
 .hero-cta-alt .alt-lead { font-size: 14px; color: var(--text-muted); }
 
+/* Conversion block — two visibly distinct paths (demo vs waitlist), R12. */
+.conv-paths {
+  display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); gap: 20px;
+  margin-top: 32px; text-align: left; align-items: stretch;
+  /* Break out of .final-cta-inner's 600px measure — that width is tuned for a
+     single centred column and leaves the two paths badly cramped. */
+  width: min(920px, 100%); max-width: none; margin-left: auto; margin-right: auto;
+}
+.final-cta-inner:has(.conv-paths) { max-width: 920px; }
+.conv-path {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 14px;
+  padding: 26px 28px; min-width: 0;
+  display: flex; flex-direction: column; align-items: flex-start;
+}
+.conv-path.primary {
+  border-color: var(--border-glow);
+  background: linear-gradient(160deg, rgba(244,185,66,.07), var(--bg-card));
+}
+.conv-label {
+  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent-amber); margin-bottom: 10px;
+}
+.conv-lead { font-size: 16px; font-weight: 600; color: var(--text-primary); margin: 0 0 10px; line-height: 1.5; }
+.conv-detail { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 20px; }
+.conv-path .btn { margin-top: auto; }
+.conv-path .waitlist-form { margin-top: auto; width: 100%; }
+
 /* Conversion CTA rows appended to sections */
 .section-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
 .suite-cta-row {
@@ -308,10 +325,6 @@ h1 {
 .section-sub { font-size: 16px; line-height: 1.7; color: var(--text-secondary); max-width: 660px; margin: 0 0 48px; }
 
 /* ── Problem / stat grid ───────────────────────────── */
-.stat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-.stat-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 28px 24px; }
-.sv { font-size: 2rem; font-weight: 800; color: var(--accent-amber); margin-bottom: 10px; line-height: 1; }
-.sl { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
 
 /* ── Wedge ─────────────────────────────────────────── */
 .wedge-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0; }
@@ -455,8 +468,6 @@ h1 {
 }
 .every-inc .lab { font-weight: 600; color: var(--text-secondary); margin-right: 4px; }
 .every-inc i { font-style: normal; margin-right: 6px; color: var(--accent-amber); }
-.price-bottom-cta { text-align: center; margin-top: 24px; font-size: 14px; color: var(--text-muted); }
-.price-bottom-cta a { color: var(--accent-amber); font-weight: 600; }
 
 /* ── Team ──────────────────────────────────────────── */
 .team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin: 40px 0; }
@@ -647,7 +658,6 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-sub
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }
   .hero-preview { display: none; }
-  .stat-grid { grid-template-columns: repeat(2,1fr); }
   .strip-inner { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .suite-grid { grid-template-columns: repeat(2,1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; }
@@ -675,8 +685,9 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-sub
   .product-row { grid-template-columns: 1fr; direction: ltr; }
   .product-row.reverse { direction: ltr; }
   .wedge-split { grid-template-columns: 1fr; }
-  .stat-grid { grid-template-columns: 1fr 1fr; }
   .price-grid { grid-template-columns: 1fr; }
+  .conv-paths { grid-template-columns: 1fr; gap: 14px; }
+  .conv-path { padding: 20px; }
   .team-grid { grid-template-columns: 1fr; }
   .aud-grid { grid-template-columns: 1fr; }
   .flywheel { grid-template-columns: 1fr 1fr; }
@@ -691,7 +702,6 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-sub
   .strip-item .v { font-size: 10.5px; line-height: 1.4; }
 }
 @media (max-width: 480px) {
-  .stat-grid { grid-template-columns: 1fr; }
   .flywheel { grid-template-columns: 1fr; }
   .kpi-row { grid-template-columns: repeat(2,1fr); }
   .waitlist-form { flex-direction: column; }

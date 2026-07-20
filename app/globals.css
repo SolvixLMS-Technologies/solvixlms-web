@@ -304,6 +304,58 @@ h1 {
 .conv-detail { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 20px; }
 .conv-path .btn { margin-top: auto; }
 .conv-path .waitlist-form { margin-top: auto; width: 100%; }
+.conv-contact { margin-top: 22px; font-size: 14px; color: var(--text-muted); text-align: center; }
+.conv-contact a { color: var(--accent-amber); font-weight: 600; }
+.conv-contact a:hover { text-decoration: underline; }
+
+/* ── Demo page / form ──────────────────────────────── */
+.demo-hero { padding: 120px 32px 80px; position: relative; }
+.demo-wrap {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.05fr); gap: 56px; align-items: start;
+}
+.demo-intro { padding-top: 8px; }
+.demo-points { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.demo-points li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+.demo-points .d-ic {
+  flex-shrink: 0; margin-top: 1px; color: var(--accent-amber);
+  width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(244,185,66,.12); border: 1px solid var(--border-glow);
+}
+.demo-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px;
+  padding: 32px; box-shadow: 0 24px 60px -24px rgba(0,0,0,.5);
+}
+.demo-form { display: flex; flex-direction: column; gap: 16px; }
+.demo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.demo-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.demo-field label { font-size: 12px; font-weight: 600; color: var(--text-secondary); letter-spacing: .01em; }
+.demo-field .req { color: var(--accent-amber); }
+.demo-field input, .demo-field textarea {
+  width: 100%; background: var(--bg-secondary); border: 1px solid var(--border-strong);
+  border-radius: 8px; padding: 11px 13px; font-family: inherit; font-size: 14px; color: var(--text-primary);
+  transition: border-color .2s, box-shadow .2s; resize: vertical;
+}
+.demo-field input::placeholder, .demo-field textarea::placeholder { color: var(--text-dim); }
+.demo-field input:focus, .demo-field textarea:focus {
+  outline: none; border-color: var(--accent-amber); box-shadow: 0 0 0 3px rgba(244,185,66,.12);
+}
+.demo-field input:disabled, .demo-field textarea:disabled { opacity: .6; cursor: not-allowed; }
+.demo-error {
+  font-size: 13px; color: #fca5a5; background: rgba(220,38,38,.08);
+  border: 1px solid rgba(220,38,38,.25); border-radius: 8px; padding: 9px 12px;
+}
+.demo-fine { font-size: 12.5px; color: var(--text-muted); margin: 4px 0 0; text-align: center; }
+.demo-mail { color: var(--accent-amber); font-weight: 600; }
+.demo-mail:hover { text-decoration: underline; }
+.demo-done { text-align: center; padding: 20px 8px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.demo-done .check {
+  width: 48px; height: 48px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  color: var(--accent-amber); background: rgba(244,185,66,.12); border: 1px solid var(--border-glow);
+}
+.demo-done h2 { font-size: 1.4rem; font-weight: 700; margin: 0; }
+.demo-done p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin: 0; max-width: 420px; }
+.demo-done .demo-mail { font-size: inherit; }
 
 /* Conversion CTA rows appended to sections */
 .section-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
@@ -688,6 +740,10 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-sub
   .price-grid { grid-template-columns: 1fr; }
   .conv-paths { grid-template-columns: 1fr; gap: 14px; }
   .conv-path { padding: 20px; }
+  .demo-wrap { grid-template-columns: 1fr; gap: 32px; }
+  .demo-hero { padding: 100px 20px 60px; }
+  .demo-card { padding: 24px; }
+  .demo-row { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   .aud-grid { grid-template-columns: 1fr; }
   .flywheel { grid-template-columns: 1fr 1fr; }

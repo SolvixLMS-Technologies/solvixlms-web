@@ -1067,8 +1067,8 @@ function TeamSection() {
         <div className="team-grid" style={{ gridTemplateColumns: "1fr", maxWidth: 400, margin: "40px auto" }}>
           <div className="tm-card">
             <div className="av">JN</div>
-            <div className="nm">Joe Neihart</div>
-            <div className="rl">Founder &amp; President</div>
+            <div className="nm">Joseph Neihart</div>
+            <div className="rl">Founder</div>
             <p className="bio">
               USMC veteran. Operates one of the highest-volume production facilities in its
               category. Built SolvixLMS to solve his own production problems.
@@ -1158,15 +1158,6 @@ function FAQSection() {
 // ── Final CTA ─────────────────────────────────────────────────────────────────
 
 function FinalCTASection() {
-  // Interim wiring (D2 pending): there is no demo-booking mechanism yet, so the
-  // demo CTA routes to the existing one — the waitlist form below it.
-  const toWaitlist = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const input = document.getElementById("wl-final_cta");
-    input?.scrollIntoView({ block: "center", behavior: "smooth" });
-    (input as HTMLInputElement | null)?.focus({ preventScroll: true });
-  };
-
   return (
     <section className="final-cta reveal" id="demo">
       <div className="final-cta-bg" />
@@ -1184,7 +1175,7 @@ function FinalCTASection() {
               You&apos;ll get a walkthrough of the platform, a demonstration tailored to your
               lab&apos;s operations, and time to ask questions and talk through implementation.
             </p>
-            <a href="#demo" className="btn btn-demo" onClick={toWaitlist}>
+            <a href="/demo" className="btn btn-demo">
               Book a Demo <Icon name="arrow" size={15} stroke={2} />
             </a>
           </div>
@@ -1195,6 +1186,9 @@ function FinalCTASection() {
             </p>
             <WaitlistForm location="final_cta" />
           </div>
+        </div>
+        <div className="conv-contact">
+          Questions? Email <a href="mailto:info@solvixlms.com">info@solvixlms.com</a>
         </div>
       </div>
     </section>

@@ -381,7 +381,7 @@ export default function PlatformPage() {
                   your lab&apos;s operations, and time to ask questions and talk through
                   implementation.
                 </p>
-                <a href="/#demo" className="btn btn-demo">
+                <a href="/demo" className="btn btn-demo">
                   Book a Demo <Icon name="arrow" size={15} stroke={2} />
                 </a>
               </div>
@@ -392,6 +392,9 @@ export default function PlatformPage() {
                 </p>
                 <a href="/#top" className="btn btn-ghost">Join the Waitlist</a>
               </div>
+            </div>
+            <div className="conv-contact">
+              Questions? Email <a href="mailto:info@solvixlms.com">info@solvixlms.com</a>
             </div>
           </div>
         </section>

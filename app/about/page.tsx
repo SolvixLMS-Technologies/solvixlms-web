@@ -266,7 +266,7 @@ export default function AboutPage() {
                     marginBottom: 4,
                   }}
                 >
-                  Joe Neihart
+                  Joseph Neihart
                 </div>
                 <div
                   style={{
@@ -275,7 +275,7 @@ export default function AboutPage() {
                     fontWeight: 500,
                   }}
                 >
-                  Founder &amp; President, SolvixLMS
+                  Founder
                 </div>
               </div>
               <div
@@ -350,7 +350,7 @@ export default function AboutPage() {
                   your lab&apos;s operations, and time to ask questions and talk through
                   implementation.
                 </p>
-                <a href="/#demo" className="btn btn-demo">
+                <a href="/demo" className="btn btn-demo">
                   Book a Demo{" "}
                   <svg width={15} height={15} viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -365,6 +365,9 @@ export default function AboutPage() {
                 </p>
                 <a href="/#top" className="btn btn-ghost">Join the Waitlist</a>
               </div>
+            </div>
+            <div className="conv-contact">
+              Questions? Email <a href="mailto:info@solvixlms.com">info@solvixlms.com</a>
             </div>
           </div>
         </section>

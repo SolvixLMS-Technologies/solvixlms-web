@@ -41,8 +41,8 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
               "Operations management platform for modern, regulated labs. Seven integrated suites covering production, compliance, analytics, client management, and more.",
             founder: {
               "@type": "Person",
-              name: "Joe Neihart",
-              jobTitle: "Founder & President",
+              name: "Joseph Neihart",
+              jobTitle: "Founder",
             },
           }),
         }}

@@ -43,8 +43,8 @@ function Nav() {
           <a href="/about">Company</a>
         </div>
         <div className="nav-cta">
-          <a href="/#demo" className="btn btn-ghost">Book a Demo</a>
-          <a href="https://app.solvixlms.com" className="btn btn-solid">Dashboard Login</a>
+          <a href="/#demo" className="btn btn-solid">Book a Demo</a>
+          <a href="https://app.solvixlms.com" className="btn btn-ghost">Dashboard Login</a>
         </div>
       </div>
     </nav>

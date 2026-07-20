@@ -178,8 +178,8 @@ function Nav() {
           <a href="/about">Company</a>
         </div>
         <div className="nav-cta">
-          <a href="#demo" className="btn btn-ghost" onClick={scrollTo("#demo")}>Book a Demo</a>
-          <a href="https://app.solvixlms.com" className="btn btn-solid">
+          <a href="#demo" className="btn btn-solid" onClick={scrollTo("#demo")}>Book a Demo</a>
+          <a href="https://app.solvixlms.com" className="btn btn-ghost">
             Dashboard Login
           </a>
         </div>
@@ -991,32 +991,16 @@ function AudienceSection() {
 // ── Pricing Section ───────────────────────────────────────────────────────────
 
 function PricingSection() {
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <section className="reveal" id="pricing">
       <div className="container">
         <div className="section-tag mono">// Pricing</div>
         <h2 className="section-h">Simple plans. Serious power.</h2>
-        <div className="price-grid">
-          <div className="price-card">
-            <div className="tier">Essentials</div>
-            <div className="pr">$599<small>/mo</small></div>
-            <p className="pos">The essential OS for sample tracking and secondary processing.</p>
-            <div className="forz"><span>For</span>Small-to-mid facilities replacing spreadsheets.</div>
-          </div>
-          <div className="price-card popular">
-            <div className="badge">Most Popular</div>
-            <div className="tier" style={{ color: "#F4B942" }}>Professional</div>
-            <div className="pr">$999<small>/mo</small></div>
-            <p className="pos">The full operations platform with analytics and client transparency.</p>
-            <div className="forz"><span>For</span>Growing labs needing inventory, client portal, and intelligence.</div>
-          </div>
-          <div className="price-card">
-            <div className="tier">Enterprise</div>
-            <div className="pr">$1,499<small>/mo</small></div>
-            <p className="pos">The complete smart-lab ecosystem.</p>
-            <div className="forz"><span>For</span>Multi-site operators running advanced automation.</div>
-          </div>
-        </div>
         <div className="every-inc">
           <span className="lab mono">Every plan includes</span>
           <span><i>·</i>Unlimited users</span>
@@ -1025,17 +1009,49 @@ function PricingSection() {
           <span><i>·</i>Email support</span>
           <span><i>·</i>Data export</span>
         </div>
-        <div className="price-bottom-cta">
-          Access is granted via the waitlist —{" "}
-          <a
-            href="#top"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            Join now →
-          </a>
+        <div className="price-grid">
+          <div className="price-card">
+            <div className="tier">Essentials</div>
+            <div className="pr">$599<small>/mo</small></div>
+            <p className="pos">The essential OS for sample tracking and secondary processing.</p>
+            <div className="forz"><span>For</span>Small-to-mid facilities replacing spreadsheets.</div>
+            <a
+              href="#top"
+              className="btn btn-ghost"
+              style={{ width: "100%", justifyContent: "center", marginTop: 20 }}
+              onClick={scrollToTop}
+            >
+              Join the Waitlist
+            </a>
+          </div>
+          <div className="price-card popular">
+            <div className="badge">Most Popular</div>
+            <div className="tier" style={{ color: "#F4B942" }}>Professional</div>
+            <div className="pr">$999<small>/mo</small></div>
+            <p className="pos">The full operations platform with analytics and client transparency.</p>
+            <div className="forz"><span>For</span>Growing labs needing inventory, client portal, and intelligence.</div>
+            <a
+              href="#top"
+              className="btn btn-solid"
+              style={{ width: "100%", justifyContent: "center", marginTop: 20 }}
+              onClick={scrollToTop}
+            >
+              Join the Waitlist <Icon name="arrow" size={15} stroke={2} />
+            </a>
+          </div>
+          <div className="price-card">
+            <div className="tier">Enterprise</div>
+            <div className="pr">$1,499<small>/mo</small></div>
+            <p className="pos">The complete smart-lab ecosystem.</p>
+            <div className="forz"><span>For</span>Multi-site operators running advanced automation.</div>
+            <a
+              href="#demo"
+              className="btn btn-ghost"
+              style={{ width: "100%", justifyContent: "center", marginTop: 20 }}
+            >
+              Contact Sales
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1151,15 +1167,6 @@ function FinalCTASection() {
         <h2 style={{ letterSpacing: "0px" }}>Your data shouldn&apos;t die with the batch.</h2>
         <p>Join the waitlist. We&apos;ll reach out when a slot opens for a facility like yours.</p>
         <WaitlistForm location="final_cta" />
-        <div style={{ marginTop: 18 }}>
-          <a
-            href="#top"
-            className="sec-cta-link"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          >
-            or join the waitlist now <span className="arr">→</span>
-          </a>
-        </div>
       </div>
     </section>
   );
@@ -1254,10 +1261,10 @@ export default function Page() {
       <main id="main">
         <Hero />
         <Strip />
+        <ProductSection />
         <ProblemSection />
         <WedgeSection />
         <PlatformSection />
-        <ProductSection />
         <FlywheelSection />
         <AudienceSection />
         <PricingSection />

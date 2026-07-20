@@ -44,8 +44,8 @@ function Nav() {
           <a href="/about">Company</a>
         </div>
         <div className="nav-cta">
-          <a href="/#demo" className="btn btn-ghost">Book a Demo</a>
-          <a href="https://app.solvixlms.com" className="btn btn-solid">Dashboard Login</a>
+          <a href="/#demo" className="btn btn-solid">Book a Demo</a>
+          <a href="https://app.solvixlms.com" className="btn btn-ghost">Dashboard Login</a>
         </div>
       </div>
     </nav>
@@ -256,6 +256,16 @@ export default function PricingPage() {
         {/* ── Pricing cards ───────────────────────────────── */}
         <section className="reveal" style={{ padding: "0 0 20px" }}>
           <div className="container">
+            {/* Every plan includes */}
+            <div className="every-inc">
+              <span className="lab mono">Every plan includes</span>
+              <span><i>·</i>Unlimited users (no per-seat)</span>
+              <span><i>·</i>All core modules</span>
+              <span><i>·</i>Compliance workflows</span>
+              <span><i>·</i>Email support</span>
+              <span><i>·</i>Full data export</span>
+            </div>
+
             <div className="price-grid">
 
               {/* Essentials */}
@@ -317,16 +327,6 @@ export default function PricingPage() {
                 </a>
               </div>
 
-            </div>
-
-            {/* Every plan includes */}
-            <div className="every-inc">
-              <span className="lab mono">Every plan includes</span>
-              <span><i>·</i>Unlimited users (no per-seat)</span>
-              <span><i>·</i>All core modules</span>
-              <span><i>·</i>Compliance workflows</span>
-              <span><i>·</i>Email support</span>
-              <span><i>·</i>Full data export</span>
             </div>
           </div>
         </section>

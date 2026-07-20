@@ -64,7 +64,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex; align-items: center; gap: 40px;
 }
 .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-.x-logo { height: 28px !important; width: auto !important; display: block; }
+.x-logo { height: 38px !important; width: auto !important; display: block; }
 .nav-links { display: flex; align-items: center; gap: 28px; margin-left: auto; }
 .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color .2s; }
 .nav-links a:hover { color: var(--text-primary); }
@@ -621,6 +621,9 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-sub
   .breadcrumb { padding-top: 80px; }
   .nav { padding: 0 20px; }
   .nav-links { display: none; }
+  /* Hold the logo at its previous size below 768px: the mobile nav already runs
+     out of room for the logo plus both CTAs, so the desktop bump stops here. */
+  .x-logo { height: 28px !important; }
   .hero { padding: 96px 20px 60px; }
   .container { padding: 0 20px; }
   .reveal { padding: 64px 0; }

@@ -116,7 +116,7 @@ const CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "How is SolvixLMS different from a typical LIMS or inventory tool?",
-        a: "Those tools track inventory and compliance — what you have and where it is. SolvixLMS tracks the process — what happened between receiving a sample and shipping a result. Process parameters, run profiles, yield by grade, technician performance. None of that fits in a lot number. That's the category distinction.",
+        a: "Those tools track inventory and compliance — what you have and where it is. SolvixLMS tracks the process — what happened between the flower going in and the concentrate coming out. Where the loss actually occurred: wash, sieve, freeze dry, press, or purge. What the run yielded against what it should have yielded for that cultivar, at that moisture, on that equipment. Run profiles, yield by grade, technician performance. None of that fits in a lot number. That's the category distinction.",
       },
       {
         q: "Can I use SolvixLMS for my specific workflow?",
@@ -124,7 +124,7 @@ const CATEGORIES: FaqCategory[] = [
       },
       {
         q: "Do I need to rip out my current software to try SolvixLMS?",
-        a: "No. SolvixLMS runs alongside your existing compliance and state reporting tools. Most customers start with SolvCORE for production tracking and add modules as they need them.",
+        a: "No. SolvixLMS runs alongside your existing compliance and state reporting tools. All seven suites are production-ready and deployable today — most operators start with SolvCORE for production tracking and switch on the rest as they need them.",
       },
     ],
   },
@@ -133,7 +133,7 @@ const CATEGORIES: FaqCategory[] = [
     items: [
       {
         q: "What does onboarding look like?",
-        a: "A structured 30-day program: facility walkthrough, data migration from spreadsheets, SOP capture, team training, and a go-live checkpoint. Our early cohort onboarded in 2–4 weeks depending on facility size.",
+        a: "Self-serve. Operators don't have time for a 30-day onboarding program — you get up and running on your own schedule with guided tutorials and Solvix University (in-depth video walkthroughs and documentation). When you need help, our team is available anytime.",
       },
       {
         q: "How does the waitlist work?",

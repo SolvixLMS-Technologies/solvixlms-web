@@ -41,7 +41,7 @@ export default function FaqLayout({ children }: { children: React.ReactNode }) {
                 name: "How is SolvixLMS different from a typical LIMS or inventory tool?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Those tools track inventory and compliance — what you have and where it is. SolvixLMS tracks the process — what happened between receiving a sample and shipping a result. Process parameters, run profiles, yield by grade, technician performance. None of that fits in a lot number. That's the category distinction.",
+                  text: "Those tools track inventory and compliance — what you have and where it is. SolvixLMS tracks the process — what happened between the flower going in and the concentrate coming out. Where the loss actually occurred: wash, sieve, freeze dry, press, or purge. What the run yielded against what it should have yielded for that cultivar, at that moisture, on that equipment. Run profiles, yield by grade, technician performance. None of that fits in a lot number. That's the category distinction.",
                 },
               },
               {
@@ -49,7 +49,7 @@ export default function FaqLayout({ children }: { children: React.ReactNode }) {
                 name: "Do I need to rip out my current software to try SolvixLMS?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "No. SolvixLMS runs alongside your existing compliance and state reporting tools. Most customers start with SolvCORE for production tracking and add modules as they need them.",
+                  text: "No. SolvixLMS runs alongside your existing compliance and state reporting tools. All seven suites are production-ready and deployable today — most operators start with SolvCORE for production tracking and switch on the rest as they need them.",
                 },
               },
               {
@@ -57,7 +57,7 @@ export default function FaqLayout({ children }: { children: React.ReactNode }) {
                 name: "What does onboarding look like?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "A structured 30-day program: facility walkthrough, data migration from spreadsheets, SOP capture, team training, and a go-live checkpoint. Our early cohort onboarded in 2–4 weeks depending on facility size.",
+                  text: "Self-serve. Operators don't have time for a 30-day onboarding program — you get up and running on your own schedule with guided tutorials and Solvix University (in-depth video walkthroughs and documentation). When you need help, our team is available anytime.",
                 },
               },
               {

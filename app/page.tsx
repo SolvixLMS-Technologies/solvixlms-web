@@ -681,13 +681,18 @@ function ProblemSection() {
           Multi-million dollar operations. <em>Running on spreadsheets.</em>
         </h2>
         <p className="section-sub">
-          The lab software market is dominated by inventory trackers. None of them understand
-          what happens between receiving a sample and shipping a result. So operators cobble
-          together spreadsheets, whiteboards, group texts, and paper logs — and every batch of
-          institutional knowledge dies the moment the run ends.
+          The software market is dominated by inventory trackers. None of them understand what
+          happens between the flower going in and the concentrate coming out — where the loss
+          went at wash, sieve, freeze dry, press, or purge. So operators cobble together
+          spreadsheets, whiteboards, group texts, and paper logs — and every batch of
+          institutional knowledge dies the moment the run ends. Solventless makes it acute: a
+          single point of yield is worth more to a solventless operator than to any other
+          producer, and nothing in the stack measures it.
         </p>
         <div className="stat-grid">
           {[
+            { sv: "2–5×", sl: "the per-gram price of rosin versus hydrocarbon extract" },
+            { sv: "3–8%", sl: "of input flower converts to finished product — against 15–25% for hydrocarbon" },
             { sv: "$20K–$100K", sl: "lost per failed batch when process data is missing" },
             { sv: "60–80%", sl: "of shifts spent with gloves on and hands busy" },
             { sv: "0", sl: "platforms that track your process at parameter depth" },
@@ -841,7 +846,6 @@ function PlatformSection() {
           <div className="roadmap-label mono">On the roadmap</div>
           <div className="roadmap-items">
             {[
-              { icon: "link" as IconName, nm: "SolvLINK", desc: "Equipment IoT integration" },
               { icon: "globe" as IconName, nm: "SolvMRKT", desc: "Marketplace & insights" },
               { icon: "bot" as IconName, nm: "SolvAI", desc: "Operator copilot" },
             ].map((item) => (
@@ -855,6 +859,91 @@ function PlatformSection() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── SolvLINK Section ──────────────────────────────────────────────────────────
+
+const SOLVLINK_CONTROLLERS = [
+  {
+    seg: "Hydrocarbon",
+    nm: "Closed-loop automation",
+    d: "Electronically actuated valve control, recipe execution, automated purge.",
+  },
+  {
+    seg: "Solventless",
+    nm: "Agitation controller",
+    d: "Touchscreen wash control, timed and staged agitation profiles.",
+  },
+  {
+    seg: "Solventless",
+    nm: "Freeze dryer monitor",
+    d: "Cycle monitoring, moisture and temperature capture, run logging.",
+  },
+  {
+    seg: "Solventless",
+    nm: "Rosin press automation",
+    d: "Programmable temperature, pressure, and dwell profiles by cultivar.",
+  },
+];
+
+function SolvLinkSection() {
+  return (
+    <section className="reveal" id="solvlink">
+      <div className="container">
+        <div className="section-tag mono">// SolvLINK · Roadmap</div>
+        <h2 className="section-h">
+          The software that <span className="grad-text">runs the machine</span>.
+        </h2>
+        <p className="section-sub">
+          Every suite above records what your equipment did. SolvLINK is the layer designed to
+          operate it. A closed-loop extractor is run by hand today — a technician opens and closes
+          valves, judges timing by experience, and the outcome depends on who was standing there.
+          SolvLINK puts those valves under electronic actuation and software control.
+        </p>
+        <div className="wedge-split">
+          <div className="wedge-col">
+            <h4>Retrofit, not replacement</h4>
+            <ul>
+              <li>Fits the machine you already own</li>
+              <li>An upgrade decision, not a capital purchase</li>
+              <li>No change of equipment vendor</li>
+              <li>The installed base is the target</li>
+            </ul>
+          </div>
+          <div className="wedge-col right">
+            <h4>The run profile becomes the program</h4>
+            <ul>
+              <li>Soak times</li>
+              <li>Pressures</li>
+              <li>Stage transitions</li>
+              <li>Purge cycles</li>
+              <li>Reproduced by any operator, on any shift</li>
+            </ul>
+          </div>
+        </div>
+        <div className="aud-grid">
+          {SOLVLINK_CONTROLLERS.map((c) => (
+            <div className="aud-card" key={c.nm}>
+              <div className="gloss" />
+              <div className="cat">{c.seg}</div>
+              <h3>{c.nm}</h3>
+              <p>{c.d}</p>
+            </div>
+          ))}
+        </div>
+        <div className="roadmap-row" style={{ marginTop: 32 }}>
+          <div className="roadmap-label mono">Roadmap status</div>
+          <p className="suite-desc" style={{ lineHeight: 1.7 }}>
+            SolvLINK is on the roadmap and is <strong>not available to order</strong>. The first
+            controller is targeted to ship in month 18 of the current roadmap, and that gate opens
+            only after safety certification, manufacturing partner selection, and deployment
+            validation are complete. Nothing on this page is an offer of sale, a purchase
+            commitment, or a delivery date.
+          </p>
         </div>
       </div>
     </section>
@@ -1042,6 +1131,121 @@ function PricingSection() {
   );
 }
 
+// ── Solvix University Section ─────────────────────────────────────────────────
+
+function UniversitySection() {
+  return (
+    <section className="reveal" id="university">
+      <div className="container">
+        <div className="section-tag mono">// Solvix University</div>
+        <h2 className="section-h">Where operators earn the credential.</h2>
+        <p className="section-sub">
+          Solvix University is the education arm — the operator seminar in the room, and the
+          campus after it. The credential belongs to the person who earned it, not to the facility
+          that employs them.
+        </p>
+        <div className="aud-grid">
+          <div className="aud-card">
+            <div className="gloss" />
+            <div className="cat">Free · The seminar</div>
+            <h3>Solvix Certified Operator — Level 1</h3>
+            <p>
+              A one-day operator seminar and a practical assessment, earned in front of peers.
+              Free to attend, free to hold. Craft, science, and process discipline first.
+            </p>
+          </div>
+          <div className="aud-card">
+            <div className="gloss" />
+            <div className="cat">Paid · The campus</div>
+            <h3>Continuing education, online</h3>
+            <p>
+              Everything after the room: paid coursework that deepens the credential and expands
+              it across disciplines between seminars. Nothing on the campus is free — the free
+              tier of Solvix University is the seminar itself.
+            </p>
+          </div>
+        </div>
+        <div className="roadmap-row" style={{ marginTop: 32 }}>
+          <div className="roadmap-label mono">Roadmap status</div>
+          <p className="suite-desc" style={{ lineHeight: 1.7 }}>
+            The seminar program, the credential, and the online campus are in development. Dates,
+            the seminar calendar, and course pricing are not yet published.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── The Solvix Standard Section ───────────────────────────────────────────────
+
+const VERIFIED_TIERS = [
+  { tier: "Solvix Verified", hist: "90 days of continuous run data" },
+  { tier: "Verified Silver", hist: "6 months · yield variance held within band" },
+  { tier: "Verified Gold", hist: "12 months · demonstrated batch reproducibility" },
+];
+
+function StandardSection() {
+  return (
+    <section className="reveal" id="standard">
+      <div className="container">
+        <div className="section-tag mono">// The Solvix Standard</div>
+        <h2 className="section-h">
+          Published criteria. <span className="grad-text">Continuous</span> verification.
+        </h2>
+        <p className="section-sub">
+          The Solvix Standard is a criteria document for extraction operations — process
+          discipline, data integrity, personnel qualification, facility practice. It is written by
+          SolvixLMS and versioned like software. The Standard will be free to download. Verification
+          is the product.
+        </p>
+        <div className="wedge-split">
+          <div className="wedge-col">
+            <h4>How everyone else verifies</h4>
+            <ul>
+              <li>A point-in-time audit</li>
+              <li>Compliant on audit day</li>
+              <li>Silent about the other 364</li>
+              <li>Inputs only — documents, not outcomes</li>
+            </ul>
+          </div>
+          <div className="wedge-col right">
+            <h4>How Solvix Verified works</h4>
+            <ul>
+              <li>The platform observes every run, every day</li>
+              <li>Status reflects the operation as it actually runs</li>
+              <li>Outcomes measured, not just documents filed</li>
+              <li>Reviewed continuously, confirmed quarterly</li>
+            </ul>
+          </div>
+        </div>
+        <div className="every-inc" style={{ marginTop: 8 }}>
+          <span className="lab mono">Facility tiers</span>
+          {VERIFIED_TIERS.map((t) => (
+            <span key={t.tier}>
+              <i>·</i>
+              <strong>{t.tier}</strong> — {t.hist}
+            </span>
+          ))}
+        </div>
+        <p className="wedge-closing">
+          An audit is an annual physical. <em>Solvix Verified is a heart monitor.</em>
+        </p>
+        <div className="roadmap-row" style={{ marginTop: 8 }}>
+          <div className="roadmap-label mono">Roadmap status &amp; scope</div>
+          <p className="suite-desc" style={{ lineHeight: 1.7 }}>
+            The Standard and the Solvix Verified program are in development; the criteria document,
+            the tier thresholds, and the launch date are not yet published. Solvix Verified is a
+            statement of observed adherence to a published proprietary standard — it is not
+            third-party certification and not a statement of regulatory compliance. Verified
+            describes a facility. Certified describes a person.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ── Team Section ──────────────────────────────────────────────────────────────
 
 function TeamSection() {
@@ -1071,11 +1275,11 @@ function TeamSection() {
 const FAQ_DATA: [string, string][] = [
   [
     "How is SolvixLMS different from a typical LIMS or inventory tool?",
-    "Those tools track inventory and compliance: what you have and where it is. SolvixLMS is purpose-built to track the process — what happens between receiving a sample and shipping a result. Process parameters, run profiles, yield by grade, technician performance: the things every lab wants to track but can't. None of that fits in a lot number. That's the category distinction.",
+    "Those tools track inventory and compliance: what you have and where it is. SolvixLMS is purpose-built to track the process — what happens between the flower going in and the concentrate coming out. Where the loss actually occurred: wash, sieve, freeze dry, press, or purge. What the run yielded against what it should have yielded for that cultivar, at that moisture, on that equipment. Run profiles, yield by grade, technician performance. None of that fits in a lot number. That's the category distinction.",
   ],
   [
     "Do I need to rip out my current software to try SolvixLMS?",
-    "It depends on what you run today. SolvixLMS replaces general inventory and spreadsheet tools with a system purpose-built to track your process. Regulatory and state-reporting systems are different: SolvixLMS is designed to integrate with those, not replace them. SolvCORE is fully production-ready today; additional workflow templates are rolling out next.",
+    "It depends on what you run today. SolvixLMS replaces general inventory and spreadsheet tools with a system purpose-built to track your process. Regulatory and state-reporting systems are different: SolvixLMS is designed to integrate with those, not replace them. All seven suites are production-ready and deployable today — turn on what you need and add the rest when you're ready.",
   ],
   [
     "What does onboarding look like?",
@@ -1188,9 +1392,13 @@ function Footer() {
             {["SolvCORE", "SolvCOMP", "SolvERP", "SolvCLIENT", "SolvLYTICS", "SolvFLOW", "SolvCOMM"].map((s) => (
               <li key={s}><a href="#platform">{s}</a></li>
             ))}
-            {["SolvLINK", "SolvMRKT", "SolvAI"].map((s) => (
-              <li key={s}>
-                <a href="#platform">{s}<span className="soon">soon</span></a>
+            {[
+              { nm: "SolvLINK", href: "#solvlink" },
+              { nm: "SolvMRKT", href: "#platform" },
+              { nm: "SolvAI", href: "#platform" },
+            ].map((s) => (
+              <li key={s.nm}>
+                <a href={s.href}>{s.nm}<span className="soon">soon</span></a>
               </li>
             ))}
           </ul>
@@ -1257,10 +1465,13 @@ export default function Page() {
         <ProblemSection />
         <WedgeSection />
         <PlatformSection />
+        <SolvLinkSection />
         <ProductSection />
         <FlywheelSection />
         <AudienceSection />
         <PricingSection />
+        <UniversitySection />
+        <StandardSection />
         <TeamSection />
         <FAQSection />
         <FinalCTASection />

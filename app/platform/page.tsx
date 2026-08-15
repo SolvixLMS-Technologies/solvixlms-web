@@ -216,6 +216,33 @@ const SUITES = [
   },
 ];
 
+const SOLVLINK_CONTROLLERS = [
+  {
+    id: "zap" as IconName,
+    label: "Hydrocarbon",
+    h3: "Closed-loop automation",
+    desc: "Electronically actuated valve control, recipe execution, and automated purge on the standard closed-loop extractor.",
+  },
+  {
+    id: "flow" as IconName,
+    label: "Solventless",
+    h3: "Agitation controller",
+    desc: "Touchscreen wash control with timed and staged agitation profiles, captured against the batch.",
+  },
+  {
+    id: "cube" as IconName,
+    label: "Solventless",
+    h3: "Freeze dryer monitor",
+    desc: "Cycle monitoring with moisture and temperature capture and full run logging.",
+  },
+  {
+    id: "core" as IconName,
+    label: "Solventless",
+    h3: "Rosin press automation",
+    desc: "Programmable temperature, pressure, and dwell profiles by cultivar.",
+  },
+];
+
 const ARCH_LAYERS = [
   { layer: "Frontend", tech: "React + TypeScript", desc: "Purpose-built UI for gloved hands and production floor conditions" },
   { layer: "API", tech: "Express.js + TypeScript", desc: "RESTful API with RBAC, rate limiting, full audit logging" },
@@ -313,7 +340,6 @@ export default function PlatformPage() {
               <div className="plat-roadmap-label">On the roadmap</div>
               <div className="plat-roadmap-items">
                 {[
-                  { icon: "link" as IconName, nm: "SolvLINK", desc: "Equipment IoT integration" },
                   { icon: "globe" as IconName, nm: "SolvMRKT", desc: "Marketplace & insights" },
                   { icon: "bot" as IconName, nm: "SolvAI", desc: "Operator copilot & yield prediction" },
                 ].map((item) => (
@@ -327,6 +353,48 @@ export default function PlatformPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SolvLINK ────────────────────────────────────── */}
+        <section className="reveal" id="solvlink" style={{ padding: "0 0 80px" }}>
+          <div className="container">
+            <div className="section-tag mono">// SolvLINK · Roadmap</div>
+            <h2 className="section-h">The software that runs the machine.</h2>
+            <p className="section-sub" style={{ maxWidth: 700 }}>
+              The seven suites above record what your equipment did. SolvLINK is the control layer
+              designed to operate it. A closed-loop extractor is run by hand today — a technician
+              opens and closes valves, judges timing by experience, and the outcome depends on who
+              was standing there. SolvLINK puts those valves under electronic actuation and
+              software control, so a run profile saved in SolvCORE executes as a program: soak
+              times, pressures, stage transitions, and purge cycles reproduced by any operator on
+              any shift. It is a retrofit — it fits the machine an operator already owns rather
+              than asking them to buy a new one.
+            </p>
+            <div className="plat-suite-grid">
+              {SOLVLINK_CONTROLLERS.map((c) => (
+                <div key={c.h3} className="plat-suite-card">
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+                    <div style={{ color: "var(--accent-amber)", lineHeight: 0 }}>
+                      <Icon name={c.id} size={20} />
+                    </div>
+                    <div className="plat-suite-label">{c.label}</div>
+                  </div>
+                  <h3 className="plat-suite-h">{c.h3}</h3>
+                  <p className="plat-suite-desc">{c.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="plat-roadmap" style={{ marginTop: 24 }}>
+              <div className="plat-roadmap-label">Roadmap status</div>
+              <p className="plat-suite-desc" style={{ margin: 0 }}>
+                SolvLINK is on the roadmap and is <strong>not available to order</strong>. The
+                first controller is targeted to ship in month 18 of the current roadmap, and that
+                gate opens only after safety certification, manufacturing partner selection, and
+                deployment validation are complete. Nothing on this page is an offer of sale, a
+                purchase commitment, or a delivery date.
+              </p>
             </div>
           </div>
         </section>

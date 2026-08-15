@@ -195,7 +195,7 @@ const FAQ: [string, string][] = [
   ],
   [
     "What happens after the waitlist?",
-    "Once a slot opens for your facility profile, we'll reach out to schedule onboarding. The 30-day onboarding program is included in every plan at no extra cost.",
+    "Once a slot opens for your facility profile, we'll reach out. Setup is self-serve — you get up and running on your own schedule with guided tutorials and Solvix University. When you need help, our team is available anytime.",
   ],
   [
     "Is there a free trial?",
@@ -247,8 +247,8 @@ export default function PricingPage() {
               Simple pricing. No per-seat charges. No surprises.
             </h1>
             <p className="section-sub" style={{ maxWidth: 620 }}>
-              Every plan includes unlimited users, all core modules, and a dedicated onboarding
-              program. Pick the tier that matches your facility&apos;s scale.
+              Every plan includes unlimited users and all core modules. Pick the tier that
+              matches your facility&apos;s scale.
             </p>
           </div>
         </section>
@@ -270,7 +270,6 @@ export default function PricingPage() {
                   <li>SolvCOMM — command center</li>
                   <li>Email support</li>
                   <li>Data export (CSV + JSON)</li>
-                  <li>30-day onboarding program</li>
                 </ul>
                 <a href="/#top" className="btn btn-ghost" style={{ width: "100%", justifyContent: "center" }}>
                   Join the Waitlist

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About SolvixLMS — Built by Operators, for Operators",
     description:
-      "Built on the production floor of one of the highest-volume production facilities in its category.",
+      "Built on the production floor of one of Oklahoma's largest rosin producers.",
     url: "https://www.solvixlms.com/about",
     siteName: "SolvixLMS",
     images: [{ url: "https://www.solvixlms.com/assets/solvix-main-gray.svg", alt: "About SolvixLMS" }],

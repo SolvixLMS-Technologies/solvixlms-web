@@ -182,7 +182,7 @@ export default function AboutPage() {
             </h1>
             <p className="section-sub" style={{ maxWidth: 680 }}>
               SolvixLMS didn&apos;t start in a tech incubator. It started on the production floor
-              of one of the highest-volume production facilities in the United States — because
+              of one of Oklahoma&apos;s largest rosin producers — because
               the software we needed didn&apos;t exist.
             </p>
           </div>

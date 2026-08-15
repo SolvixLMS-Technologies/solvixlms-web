@@ -655,7 +655,7 @@ function Strip() {
       <div className="strip-inner">
         <div className="strip-item">
           <div className="l">Operator-built</div>
-          <div className="v">One of the highest-volume production facilities in its category</div>
+          <div className="v">From the production floor, not a conference room</div>
         </div>
         <div className="strip-item">
           <div className="l">Built at</div>

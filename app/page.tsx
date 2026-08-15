@@ -1014,7 +1014,7 @@ function FlywheelSection() {
     { n: "LEARN", d: "Cross-batch intelligence compounds", c: 3 },
     { n: "SPEAK", d: "Bishop delivers insight at the point of work", c: 4, roadmap: true },
     { n: "IMPROVE", d: "Operators make measurably better decisions", c: 5 },
-    { n: "PROVE", d: "Certified outcomes", c: 6, roadmap: true },
+    { n: "PROVE", d: "Outcomes backed by the record", c: 6, roadmap: true },
   ];
 
   return (

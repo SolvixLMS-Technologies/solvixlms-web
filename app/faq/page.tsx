@@ -171,7 +171,7 @@ const CATEGORIES: FaqCategory[] = [
       },
       {
         q: "Is there a free trial?",
-        a: "We don't offer self-serve trials. Instead, we do a structured demo and onboarding so you get real value from day one. Book a demo to get started.",
+        a: "We don't offer self-serve trials — access is waitlist-gated. Book a demo to get started.",
       },
     ],
   },

@@ -199,7 +199,7 @@ const FAQ: [string, string][] = [
   ],
   [
     "Is there a free trial?",
-    "We don't offer self-serve trials. Instead, we do a structured demo and onboarding so you get real value from day one. Book a demo to get started.",
+    "We don't offer self-serve trials — access is waitlist-gated. Book a demo to get started.",
   ],
 ];
 
@@ -304,7 +304,6 @@ export default function PricingPage() {
                 <ul className="price-feat-list">
                   <li>Everything in Professional</li>
                   <li>SolvLYTICS — analytics &amp; intelligence</li>
-                  <li>SolvAI — yield prediction &amp; AI insights</li>
                   <li>Dedicated account manager</li>
                   <li>Custom integrations</li>
                   <li>SLA guarantee</li>

@@ -129,7 +129,7 @@ export default function FaqLayout({ children }: { children: React.ReactNode }) {
                 name: "Is there a free trial?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "We don't offer self-serve trials. Instead, we do a structured demo and onboarding so you get real value from day one. Book a demo to get started.",
+                  text: "We don't offer self-serve trials — access is waitlist-gated. Book a demo to get started.",
                 },
               },
             ],

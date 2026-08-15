@@ -139,10 +139,6 @@ const CATEGORIES: FaqCategory[] = [
         q: "How does the waitlist work?",
         a: "Join the list, we'll reach out when a slot opens for a facility of your profile and size. No charge to be on the waitlist.",
       },
-      {
-        q: "How long does it take to see ROI?",
-        a: "Most operators see cost-per-gram clarity inside the first 30 days of clean capture. Yield-improvement gains from parameter analysis typically emerge at the 60–90 day mark.",
-      },
     ],
   },
   {
@@ -154,7 +150,7 @@ const CATEGORIES: FaqCategory[] = [
       },
       {
         q: "Is my data secure?",
-        a: "Every deployment is isolated at the tenant level. All traffic over TLS. Role-based access control. Audit trails on every record. SOC 2 readiness is on our 2026 roadmap.",
+        a: "Every deployment is isolated at the tenant level. All traffic over TLS. Role-based access control. Audit trails on every record. We're pursuing SOC 2 certification.",
       },
       {
         q: "What happens to my data if I cancel?",

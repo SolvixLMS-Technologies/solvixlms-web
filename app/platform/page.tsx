@@ -180,8 +180,8 @@ const SUITES = [
   {
     id: "lytics" as IconName,
     label: "SolvLYTICS",
-    h3: "The only intelligence trained on how you actually produce.",
-    desc: "The only analytics engine trained on how you actually produce. Cost trends, yield curves, batch profiles, technician performance — from your own runs, not industry averages.",
+    h3: "Analytics built on your own runs, not industry averages.",
+    desc: "Cost trends, yield curves, batch profiles, technician performance — from your own runs, not industry averages.",
     features: [
       "Yield trending by batch, technician, and time period",
       "Cost-per-gram analysis with drill-down by consumable",

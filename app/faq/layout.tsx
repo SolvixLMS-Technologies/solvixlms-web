@@ -65,7 +65,7 @@ export default function FaqLayout({ children }: { children: React.ReactNode }) {
                 name: "Is my data secure?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Every deployment is isolated at the tenant level. All traffic over TLS. Role-based access control. Audit trails on every record. SOC 2 readiness is on our 2026 roadmap.",
+                  text: "Every deployment is isolated at the tenant level. All traffic over TLS. Role-based access control. Audit trails on every record. We're pursuing SOC 2 certification.",
                 },
               },
               {
@@ -90,14 +90,6 @@ export default function FaqLayout({ children }: { children: React.ReactNode }) {
                 acceptedAnswer: {
                   "@type": "Answer",
                   text: "Your data is yours. Full export (CSV and JSON) available at any time. Cancellation gives you a 60-day grace period to pull anything you need.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "How long does it take to see ROI?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Most operators see cost-per-gram clarity inside the first 30 days of clean capture. Yield-improvement gains from parameter analysis typically emerge at the 60–90 day mark.",
                 },
               },
               {

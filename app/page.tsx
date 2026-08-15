@@ -695,7 +695,6 @@ function ProblemSection() {
             { sv: "3–8%", sl: "of input flower converts to finished product — against 15–25% for hydrocarbon" },
             { sv: "$20K–$100K", sl: "lost per failed batch when process data is missing" },
             { sv: "60–80%", sl: "of shifts spent with gloves on and hands busy" },
-            { sv: "0", sl: "platforms that track your process at parameter depth" },
             { sv: "$0", sl: "intelligence captured from your data after a batch closes" },
           ].map((s) => (
             <div className="stat-card" key={s.sv}>
@@ -990,7 +989,7 @@ function ProductSection() {
         <div className="product-row">
           <div className="product-text">
             <div className="num mono">03 · SolvLYTICS</div>
-            <h3>The only intelligence trained on how you actually produce.</h3>
+            <h3>Analytics built on your own runs, not industry averages.</h3>
             <p>
               Cost-per-gram, yield trends, batch profiles, technician performance — from your own
               runs, not industry averages.
@@ -1287,7 +1286,7 @@ const FAQ_DATA: [string, string][] = [
   ],
   [
     "Is my data secure?",
-    "Yes. Your data lives in its own private space — no one else can see it. Everything in transit is encrypted. You decide who on your team can see what, and every change is logged so you always have a record of what happened and when. We're working toward SOC 2 certification in 2026 for additional third-party validation.",
+    "Yes. Your data lives in its own private space — no one else can see it. Everything in transit is encrypted. You decide who on your team can see what, and every change is logged so you always have a record of what happened and when. We're pursuing SOC 2 certification.",
   ],
   [
     "Do you integrate with regulatory and state reporting systems?",
@@ -1300,10 +1299,6 @@ const FAQ_DATA: [string, string][] = [
   [
     "What happens to my data if I cancel?",
     "Your data is yours. Full export (CSV and JSON) is available at any time. Cancellation comes with a 60-day grace period to pull anything you need.",
-  ],
-  [
-    "How long does it take to see ROI?",
-    "Most operators see cost-per-gram clarity within the first 30 days of clean capture. Yield-improvement gains from parameter analysis typically emerge around the 60–90 day mark.",
   ],
   [
     "How does the waitlist work?",

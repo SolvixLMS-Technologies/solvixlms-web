@@ -181,9 +181,8 @@ export default function AboutPage() {
               <span className="grad-text">Designed for the production floor.</span>
             </h1>
             <p className="section-sub" style={{ maxWidth: 680 }}>
-              SolvixLMS didn&apos;t start in a tech incubator. It started on the production floor
-              of one of Oklahoma&apos;s largest rosin producers — because
-              the software we needed didn&apos;t exist.
+              SolvixLMS didn&apos;t start in a tech incubator. It started inside a live
+              production facility — because the software we needed didn&apos;t exist.
             </p>
           </div>
         </section>

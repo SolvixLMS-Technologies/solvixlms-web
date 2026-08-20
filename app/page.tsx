@@ -636,7 +636,7 @@ function Hero() {
           </a>
           <div className="stat-bar mono">
             <span>7 Live Suites</span>
-            <span>Built at one of Oklahoma&apos;s largest rosin producers</span>
+            <span>Built inside a live production facility</span>
             <span>AI-Native Architecture</span>
             <span>Patent Pending</span>
           </div>
@@ -658,8 +658,8 @@ function Strip() {
           <div className="v">From the production floor, not a conference room</div>
         </div>
         <div className="strip-item">
-          <div className="l">Built at</div>
-          <div className="v">one of Oklahoma&apos;s largest rosin producers</div>
+          <div className="l">Built inside</div>
+          <div className="v">a live production facility</div>
         </div>
         <div className="strip-item">
           <div className="l">Patent pending</div>

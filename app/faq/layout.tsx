@@ -14,7 +14,14 @@ export const metadata: Metadata = {
       "Answers to the most common questions: comparisons, regulatory reporting, onboarding, data security, pricing, and more.",
     url: "https://www.solvixlms.com/faq",
     siteName: "SolvixLMS",
-    images: [{ url: "https://www.solvixlms.com/assets/solvix-main-gray.svg", alt: "SolvixLMS FAQ" }],
+    images: [
+      {
+        url: "https://www.solvixlms.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "SolvixLMS FAQ",
+      },
+    ],
     type: "website",
   },
   twitter: {
@@ -22,7 +29,7 @@ export const metadata: Metadata = {
     title: "SolvixLMS FAQ — Common Questions About Lab Management Software",
     description:
       "Comparisons, regulatory reporting, onboarding, data security, pricing — all answered.",
-    images: ["https://www.solvixlms.com/assets/solvix-main-gray.svg"],
+    images: ["https://www.solvixlms.com/og-image.png"],
   },
 };
 

@@ -43,8 +43,8 @@ function Nav() {
           <a href="/about">Company</a>
         </div>
         <div className="nav-cta">
-          <a href="/#demo" className="btn btn-ghost">Book a Demo</a>
-          <a href="https://app.solvixlms.com" className="btn btn-solid">Dashboard Login</a>
+          <a href="/#demo" className="btn btn-solid">Book a Demo</a>
+          <a href="https://app.solvixlms.com" className="btn btn-ghost">Dashboard Login</a>
         </div>
       </div>
     </nav>
@@ -97,8 +97,8 @@ function Footer() {
       <div className="footer-bottom">
         <div>© 2026 SolvixLMS Technologies Inc. All rights reserved.</div>
         <div className="links">
-          <a href="/#disclaimers">Privacy</a>
-          <a href="/#disclaimers">Terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
         </div>
       </div>
     </footer>
@@ -320,7 +320,7 @@ export default function FaqPage() {
               <a href="/#demo" className="btn btn-solid">
                 Book a Demo <Icon name="arrow" size={16} stroke={2} />
               </a>
-              <a href="/#top" className="btn btn-ghost">Join the Waitlist</a>
+              <a href="/#waitlist" className="btn btn-ghost">Join the Waitlist</a>
             </div>
           </div>
         </section>

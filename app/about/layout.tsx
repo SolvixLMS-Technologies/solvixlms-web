@@ -14,7 +14,14 @@ export const metadata: Metadata = {
       "Built inside a live production facility.",
     url: "https://www.solvixlms.com/about",
     siteName: "SolvixLMS",
-    images: [{ url: "https://www.solvixlms.com/assets/solvix-main-gray.svg", alt: "About SolvixLMS" }],
+    images: [
+      {
+        url: "https://www.solvixlms.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "About SolvixLMS",
+      },
+    ],
     type: "website",
   },
   twitter: {
@@ -22,7 +29,7 @@ export const metadata: Metadata = {
     title: "About SolvixLMS — Built by Operators, for Operators",
     description:
       "Built on the production floor — by operators, for operators.",
-    images: ["https://www.solvixlms.com/assets/solvix-main-gray.svg"],
+    images: ["https://www.solvixlms.com/og-image.png"],
   },
 };
 

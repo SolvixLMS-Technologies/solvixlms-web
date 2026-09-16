@@ -16,7 +16,9 @@ export const metadata: Metadata = {
     siteName: "SolvixLMS",
     images: [
       {
-        url: "https://www.solvixlms.com/assets/solvix-main-gray.svg",
+        url: "https://www.solvixlms.com/og-image.png",
+        width: 1200,
+        height: 630,
         alt: "SolvixLMS Platform Overview",
       },
     ],
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
     title: "SolvixLMS Platform — Seven Suites, One System",
     description:
       "Production tracking, compliance, analytics, client portal, workflow — all sharing one data model.",
-    images: ["https://www.solvixlms.com/assets/solvix-main-gray.svg"],
+    images: ["https://www.solvixlms.com/og-image.png"],
   },
 };
 

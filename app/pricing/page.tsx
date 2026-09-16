@@ -44,8 +44,8 @@ function Nav() {
           <a href="/about">Company</a>
         </div>
         <div className="nav-cta">
-          <a href="/#demo" className="btn btn-ghost">Book a Demo</a>
-          <a href="https://app.solvixlms.com" className="btn btn-solid">Dashboard Login</a>
+          <a href="/#demo" className="btn btn-solid">Book a Demo</a>
+          <a href="https://app.solvixlms.com" className="btn btn-ghost">Dashboard Login</a>
         </div>
       </div>
     </nav>
@@ -97,8 +97,8 @@ function Footer() {
       <div className="footer-bottom">
         <div>© 2026 SolvixLMS Technologies Inc. All rights reserved.</div>
         <div className="links">
-          <a href="/#disclaimers">Privacy</a>
-          <a href="/#disclaimers">Terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
         </div>
       </div>
     </footer>
@@ -154,7 +154,7 @@ const TABLE_GROUPS: { group: string; rows: { label: string; ess: RowVal; pro: Ro
     ],
   },
   {
-    group: "Analytics & AI",
+    group: "SolvLYTICS analytics (Enterprise)",
     rows: [
       { label: "Yield trending", ess: false, pro: false, ent: true },
       { label: "Technician benchmarking", ess: false, pro: false, ent: true },
@@ -271,8 +271,11 @@ export default function PricingPage() {
                   <li>Email support</li>
                   <li>Data export (CSV + JSON)</li>
                 </ul>
-                <a href="/#top" className="btn btn-ghost" style={{ width: "100%", justifyContent: "center" }}>
-                  Join the Waitlist
+                <a href="/#demo" className="btn btn-solid" style={{ width: "100%", justifyContent: "center" }}>
+                  Book a Demo
+                </a>
+                <a href="/#waitlist" style={{ display: "block", textAlign: "center", marginTop: 12, fontSize: 13, color: "var(--text-muted)", textDecoration: "none" }}>
+                  Or join the waitlist
                 </a>
               </div>
 
@@ -291,8 +294,11 @@ export default function PricingPage() {
                   <li>Custom report templates</li>
                   <li>API access</li>
                 </ul>
-                <a href="/#top" className="btn btn-solid" style={{ width: "100%", justifyContent: "center" }}>
-                  Join the Waitlist <Icon name="arrow" size={15} stroke={2} />
+                <a href="/#demo" className="btn btn-solid" style={{ width: "100%", justifyContent: "center" }}>
+                  Book a Demo <Icon name="arrow" size={15} stroke={2} />
+                </a>
+                <a href="/#waitlist" style={{ display: "block", textAlign: "center", marginTop: 12, fontSize: 13, color: "var(--text-muted)", textDecoration: "none" }}>
+                  Or join the waitlist
                 </a>
               </div>
 
@@ -310,12 +316,17 @@ export default function PricingPage() {
                   <li>Multi-site management</li>
                   <li>SSO / SAML</li>
                 </ul>
-                <a href="/#demo" className="btn btn-ghost" style={{ width: "100%", justifyContent: "center" }}>
+                <a href="/#demo" className="btn btn-solid" style={{ width: "100%", justifyContent: "center" }}>
                   Contact Sales
                 </a>
               </div>
 
             </div>
+
+            <p className="section-sub" style={{ maxWidth: 720, margin: "28px auto 0", fontSize: 14, textAlign: "center" }}>
+              Professional includes cost-per-gram operational metrics. SolvLYTICS yield trending,
+              technician benchmarking, and cost drill-downs are Enterprise.
+            </p>
 
             {/* Every plan includes */}
             <div className="every-inc">
@@ -406,10 +417,10 @@ export default function PricingPage() {
               Join the waitlist. No commitment, no credit card. We&apos;ll reach out when a slot opens.
             </p>
             <div className="plat-cta-row" style={{ justifyContent: "center" }}>
-              <a href="/#top" className="btn btn-solid">
-                Join the Waitlist <Icon name="arrow" size={16} stroke={2} />
+              <a href="/#demo" className="btn btn-solid">
+                Book a Demo <Icon name="arrow" size={16} stroke={2} />
               </a>
-              <a href="/#demo" className="btn btn-ghost">Book a Demo</a>
+              <a href="/#waitlist" className="btn btn-ghost">Join the Waitlist</a>
             </div>
           </div>
         </section>

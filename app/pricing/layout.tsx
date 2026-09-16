@@ -14,14 +14,21 @@ export const metadata: Metadata = {
       "Three plans from $599/mo. Unlimited users. All core modules. No per-seat pricing.",
     url: "https://www.solvixlms.com/pricing",
     siteName: "SolvixLMS",
-    images: [{ url: "https://www.solvixlms.com/assets/solvix-main-gray.svg", alt: "SolvixLMS Pricing" }],
+    images: [
+      {
+        url: "https://www.solvixlms.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "SolvixLMS Pricing",
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "SolvixLMS Pricing — Plans for Every Lab",
     description: "Three plans from $599/mo. Unlimited users. All core modules.",
-    images: ["https://www.solvixlms.com/assets/solvix-main-gray.svg"],
+    images: ["https://www.solvixlms.com/og-image.png"],
   },
 };
 

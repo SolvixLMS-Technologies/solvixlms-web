@@ -30,8 +30,8 @@ function Nav() {
           <a href="/about" style={{ color: "var(--accent-amber)" }}>Company</a>
         </div>
         <div className="nav-cta">
-          <a href="/#demo" className="btn btn-ghost">Book a Demo</a>
-          <a href="https://app.solvixlms.com" className="btn btn-solid">Dashboard Login</a>
+          <a href="/#demo" className="btn btn-solid">Book a Demo</a>
+          <a href="https://app.solvixlms.com" className="btn btn-ghost">Dashboard Login</a>
         </div>
       </div>
     </nav>
@@ -84,8 +84,8 @@ function Footer() {
       <div className="footer-bottom">
         <div>© 2026 SolvixLMS Technologies Inc. All rights reserved.</div>
         <div className="links">
-          <a href="/#disclaimers">Privacy</a>
-          <a href="/#disclaimers">Terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
         </div>
       </div>
     </footer>
@@ -343,14 +343,14 @@ export default function AboutPage() {
               for a facility like yours.
             </p>
             <div className="plat-cta-row" style={{ justifyContent: "center" }}>
-              <a href="/#top" className="btn btn-solid">
-                Join the Waitlist{" "}
+              <a href="/#demo" className="btn btn-solid">
+                Book a Demo{" "}
                 <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>
               </a>
-              <a href="/#demo" className="btn btn-ghost">Book a Demo</a>
+              <a href="/#waitlist" className="btn btn-ghost">Join the Waitlist</a>
             </div>
           </div>
         </section>

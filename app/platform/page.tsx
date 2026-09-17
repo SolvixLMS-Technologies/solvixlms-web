@@ -429,8 +429,8 @@ export default function PlatformPage() {
           <div className="final-cta-inner">
             <h2 style={{ letterSpacing: "0px" }}>Ready to see your operation clearly?</h2>
             <p>
-              Join the waitlist. We onboard facilities based on fit and capacity — no spam, no
-              pressure.
+              Book a 30-minute facility demo. We&apos;ll walk your suites against your process —
+              no spam, no pressure.
             </p>
             <div className="plat-cta-row" style={{ justifyContent: "center" }}>
               <a href="/#demo" className="btn btn-solid">

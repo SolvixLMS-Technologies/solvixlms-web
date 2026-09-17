@@ -414,7 +414,8 @@ export default function PricingPage() {
               Ready to see what SolvixLMS can do for your facility?
             </h2>
             <p>
-              Join the waitlist. No commitment, no credit card. We&apos;ll reach out when a slot opens.
+              Book a 30-minute facility demo — no commitment, no credit card. Prefer the list
+              first? Join the waitlist anytime.
             </p>
             <div className="plat-cta-row" style={{ justifyContent: "center" }}>
               <a href="/#demo" className="btn btn-solid">

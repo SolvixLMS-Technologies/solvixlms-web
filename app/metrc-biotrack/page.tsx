@@ -90,6 +90,36 @@ export default function MetrcBioTrackPage() {
               <li>Toll-client questions that tags alone cannot answer</li>
               <li>Yield meetings with no reproducible run profile attached to the lot</li>
             </ul>
+
+            <h2 className="section-h" style={{ fontSize: "1.75rem", marginTop: 48 }}>
+              FAQ
+            </h2>
+            <div className="faq-list" style={{ marginTop: 20 }}>
+              <div className="faq-item open">
+                <div className="faq-q" role="heading" aria-level={3}>
+                  <span>Does SolvixLMS replace Metrc or BioTrack?</span>
+                </div>
+                <div className="faq-a">
+                  <p>
+                    No. Metrc and BioTrack are state track-and-trace systems for regulated inventory.
+                    SolvixLMS is designed to complement them by capturing process parameters, yields,
+                    and production operations that track-and-trace systems do not store.
+                  </p>
+                </div>
+              </div>
+              <div className="faq-item open">
+                <div className="faq-q" role="heading" aria-level={3}>
+                  <span>Do you integrate with Metrc or BioTrack today?</span>
+                </div>
+                <div className="faq-a">
+                  <p>
+                    SolvixLMS is designed to integrate with state track-and-trace workflows.
+                    Integration depth and timing vary by jurisdiction — book a demo for the current
+                    status for your state.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

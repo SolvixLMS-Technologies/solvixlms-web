@@ -120,6 +120,36 @@ export default function VsLimsPage() {
               <li>Yield meetings argue opinions because the process record is incomplete</li>
               <li>You need compliance plus production ops in one data model</li>
             </ul>
+
+            <h2 className="section-h" style={{ fontSize: "1.75rem", marginTop: 48 }}>
+              FAQ
+            </h2>
+            <div className="faq-list" style={{ marginTop: 20 }}>
+              <div className="faq-item open">
+                <div className="faq-q" role="heading" aria-level={3}>
+                  <span>Is SolvixLMS a LIMS?</span>
+                </div>
+                <div className="faq-a">
+                  <p>
+                    SolvixLMS overlaps with LIMS on sample and lot tracking, but it is built as a
+                    process operations platform — capturing how a batch was run at parameter depth,
+                    not only what inventory remains.
+                  </p>
+                </div>
+              </div>
+              <div className="faq-item open">
+                <div className="faq-q" role="heading" aria-level={3}>
+                  <span>Can SolvixLMS replace our existing LIMS?</span>
+                </div>
+                <div className="faq-a">
+                  <p>
+                    Many facilities replace spreadsheet-heavy workflows and inventory tools with
+                    SolvixLMS. If you already run a clinical-style LIMS, book a demo — fit depends
+                    on whether your bottleneck is process knowledge or sample custody alone.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -6,13 +6,14 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     // Defense-in-depth if host headers reach Next without middleware match.
+    // Explicit 301 (not permanent:true → 308) so apex SEO signals stay on 301.
     // Primary apex fix still requires DNS/edge to point solvixlms.com at this service.
     return [
       {
         source: "/:path*",
         has: [{ type: "host", value: "solvixlms.com" }],
         destination: "https://www.solvixlms.com/:path*",
-        permanent: true,
+        statusCode: 301,
       },
     ];
   },

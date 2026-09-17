@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
+const OG_IMAGE = {
+  url: "https://www.solvixlms.com/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "SolvixLMS — They track products. We track the process.",
+  type: "image/png",
+};
+
 export const metadata: Metadata = {
   title: "SolvixLMS — The Operating System for the Modern Lab",
   description:
@@ -16,6 +24,9 @@ export const metadata: Metadata = {
     "lab compliance software",
     "SolvixLMS",
   ],
+  alternates: {
+    canonical: "https://www.solvixlms.com/",
+  },
   openGraph: {
     type: "website",
     url: "https://www.solvixlms.com",
@@ -23,15 +34,61 @@ export const metadata: Metadata = {
     description:
       "The only platform built to track your process at parameter depth — not just inventory. Built for modern, regulated labs.",
     siteName: "SolvixLMS",
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "SolvixLMS — The Operating System for the Modern Lab",
     description:
       "The only platform built to track your process at parameter depth — not just inventory. Built for modern, regulated labs.",
+    images: [OG_IMAGE.url],
   },
   robots: { index: true, follow: true },
   metadataBase: new URL("https://www.solvixlms.com"),
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.solvixlms.com/#organization",
+      name: "SolvixLMS Technologies Inc.",
+      url: "https://www.solvixlms.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.solvixlms.com/og-image.png",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.solvixlms.com/#website",
+      name: "SolvixLMS",
+      url: "https://www.solvixlms.com",
+      publisher: { "@id": "https://www.solvixlms.com/#organization" },
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.solvixlms.com/#software",
+      name: "SolvixLMS",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      description:
+        "Laboratory operations platform — purpose-built for modern, regulated labs. Tracks process at parameter depth, not just inventory.",
+      url: "https://www.solvixlms.com",
+      image: "https://www.solvixlms.com/og-image.png",
+      publisher: { "@id": "https://www.solvixlms.com/#organization" },
+      offers: {
+        "@type": "AggregateOffer",
+        priceCurrency: "USD",
+        lowPrice: "599",
+        highPrice: "1499",
+        offerCount: "3",
+        url: "https://www.solvixlms.com/pricing",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -42,7 +99,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="Km5i7GCA4dX6an1X4UHtbEa3THcNrixRQDV1Ddc0XZc" />
+        <meta
+          name="google-site-verification"
+          content="Km5i7GCA4dX6an1X4UHtbEa3THcNrixRQDV1Ddc0XZc"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -55,30 +115,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "SolvixLMS",
-              applicationCategory: "BusinessApplication",
-              operatingSystem: "Web",
-              description:
-                "Laboratory operations platform — purpose-built for modern, regulated labs.",
-              url: "https://www.solvixlms.com",
-              publisher: {
-                "@type": "Organization",
-                name: "SolvixLMS Technologies Inc.",
-                url: "https://www.solvixlms.com",
-              },
-              offers: {
-                "@type": "AggregateOffer",
-                priceCurrency: "USD",
-                lowPrice: "599",
-                highPrice: "1499",
-                offerCount: "3",
-              },
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body>

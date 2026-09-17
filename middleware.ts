@@ -1,15 +1,36 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// Takedown LIFTED (2026-06-29): the rewritten marketing site is now public at
-// www.solvixlms.com — this middleware no longer redirects to the app; it passes
-// every request through. Kept in place (not deleted) so re-takedown is a one-line
-// restore: swap the NextResponse.next() below back to
-//   return NextResponse.redirect("https://app.solvixlms.com", 302);
-// The /api/* Auth0 proxy rewrites live in next.config.ts (untouched); the matcher
-// below still excludes /api/, Next internals, and favicon.
-export function middleware(_request: NextRequest) {
-  return NextResponse.next();
+const CANONICAL_HOST = "www.solvixlms.com";
+
+/**
+ * Apex → www path-preserving HTTPS redirect (no HTTP hop).
+ * Only applies when this app receives the request. If apex DNS still points
+ * at a different host (current live state), fix Railway/DNS first — see
+ * docs in the Project store / PR description.
+ */
+export function middleware(request: NextRequest) {
+  const host = (request.headers.get("host") || "").split(":")[0].toLowerCase();
+
+  if (host === "solvixlms.com") {
+    const dest = new URL(
+      request.nextUrl.pathname + request.nextUrl.search,
+      `https://${CANONICAL_HOST}`
+    );
+    return NextResponse.redirect(dest, 301);
+  }
+
+  const response = NextResponse.next();
+
+  // HSTS once traffic is on the canonical HTTPS host
+  if (host === CANONICAL_HOST || host.endsWith(".up.railway.app")) {
+    response.headers.set(
+      "Strict-Transport-Security",
+      "max-age=31536000; includeSubDomains; preload"
+    );
+  }
+
+  return response;
 }
 
 // Apply to all page traffic. EXCLUDE the /api/* proxy routes (login/logout/callback

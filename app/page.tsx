@@ -143,6 +143,14 @@ function Icon({
 
 // ── Nav ───────────────────────────────────────────────────────────────────────
 
+function smoothScrollTo(selector: string) {
+  return (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = document.querySelector(selector);
+    if (el) window.scrollTo({ top: (el as HTMLElement).offsetTop - 60, behavior: "smooth" });
+  };
+}
+
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -152,12 +160,6 @@ function Nav() {
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);
-
-  const scrollTo = (selector: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    const el = document.querySelector(selector);
-    if (el) window.scrollTo({ top: (el as HTMLElement).offsetTop - 60, behavior: "smooth" });
-  };
 
   return (
     <nav className={"nav " + (scrolled ? "scrolled" : "")}>
@@ -178,8 +180,10 @@ function Nav() {
           <a href="/about">Company</a>
         </div>
         <div className="nav-cta">
-          <a href="#demo" className="btn btn-ghost" onClick={scrollTo("#demo")}>Book a Demo</a>
-          <a href="https://app.solvixlms.com" className="btn btn-solid">
+          <a href="#demo" className="btn btn-solid" onClick={smoothScrollTo("#demo")}>
+            Book a Demo
+          </a>
+          <a href="https://app.solvixlms.com" className="btn btn-ghost">
             Dashboard Login
           </a>
         </div>
@@ -190,10 +194,17 @@ function Nav() {
 
 // ── WaitlistForm ──────────────────────────────────────────────────────────────
 
-function WaitlistForm({ location = "hero" }: { location?: string }) {
+function LeadForm({
+  location = "hero",
+  intent = "waitlist",
+}: {
+  location?: string;
+  intent?: "waitlist" | "demo";
+}) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
   const [error, setError] = useState("");
+  const isDemo = intent === "demo";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -203,7 +214,12 @@ function WaitlistForm({ location = "hero" }: { location?: string }) {
       return;
     }
     setStatus("loading");
-    const source = location === "final_cta" ? "cta" : location;
+    const source =
+      intent === "demo"
+        ? `demo_${location === "final_cta" ? "cta" : location}`
+        : location === "final_cta"
+          ? "cta"
+          : location;
     try {
       const res = await fetch("https://app.solvixlms.com/api/v1/waitlist", {
         method: "POST",
@@ -215,8 +231,9 @@ function WaitlistForm({ location = "hero" }: { location?: string }) {
         (window as { dataLayer?: unknown[] }).dataLayer =
           (window as { dataLayer?: unknown[] }).dataLayer || [];
         ((window as { dataLayer?: unknown[] }).dataLayer as unknown[]).push({
-          event: "waitlist_submit",
+          event: isDemo ? "demo_request" : "waitlist_submit",
           form_location: location,
+          form_intent: intent,
         });
         setStatus("success");
         setEmail("");
@@ -243,8 +260,12 @@ function WaitlistForm({ location = "hero" }: { location?: string }) {
           <Icon name="check" size={16} stroke={2.5} />
         </span>
         <div>
-          <strong>You&apos;re on the list.</strong>
-          <span>We&apos;ll be in touch when a slot opens.</span>
+          <strong>{isDemo ? "Demo request received." : "You\u2019re on the list."}</strong>
+          <span>
+            {isDemo
+              ? "We'll reach out to schedule a 30-minute facility walkthrough."
+              : "We'll be in touch when a slot opens."}
+          </span>
         </div>
       </div>
     );
@@ -252,12 +273,16 @@ function WaitlistForm({ location = "hero" }: { location?: string }) {
 
   return (
     <>
-      <form className="waitlist-form" onSubmit={handleSubmit} aria-label={`Waitlist form (${location})`}>
-        <label htmlFor={`wl-${location}`} style={{ position: "absolute", left: -9999 }}>
+      <form
+        className="waitlist-form"
+        onSubmit={handleSubmit}
+        aria-label={isDemo ? `Demo request form (${location})` : `Waitlist form (${location})`}
+      >
+        <label htmlFor={`lead-${intent}-${location}`} style={{ position: "absolute", left: -9999 }}>
           Email address
         </label>
         <input
-          id={`wl-${location}`}
+          id={`lead-${intent}-${location}`}
           type="email"
           placeholder="you@yourlab.com"
           value={email}
@@ -267,7 +292,11 @@ function WaitlistForm({ location = "hero" }: { location?: string }) {
         />
         <button type="submit" className="btn btn-solid btn-mag" disabled={status === "loading"}>
           {status === "loading" ? (
-            "Joining…"
+            isDemo ? "Sending…" : "Joining…"
+          ) : isDemo ? (
+            <>
+              Book a 30-minute facility demo <Icon name="arrow" size={16} stroke={2} />
+            </>
           ) : (
             <>
               Join the Waitlist <Icon name="arrow" size={16} stroke={2} />
@@ -282,6 +311,14 @@ function WaitlistForm({ location = "hero" }: { location?: string }) {
       )}
     </>
   );
+}
+
+function WaitlistForm({ location = "hero" }: { location?: string }) {
+  return <LeadForm location={location} intent="waitlist" />;
+}
+
+function DemoForm({ location = "hero" }: { location?: string }) {
+  return <LeadForm location={location} intent="demo" />;
 }
 
 // ── DonutChart ────────────────────────────────────────────────────────────────
@@ -627,12 +664,16 @@ function Hero() {
             The only platform built to track your process at parameter depth — not just
             inventory. Purpose-built for the lab.
           </p>
-          <WaitlistForm location="hero" />
-          <div className="waitlist-helper">
-            Access invitations sent based on facility fit and onboarding capacity. No spam.
+          <div className="plat-cta-row" style={{ marginTop: 8 }}>
+            <a href="#demo" className="btn btn-solid btn-mag" onClick={smoothScrollTo("#demo")}>
+              Book a 30-minute facility demo <Icon name="arrow" size={16} stroke={2} />
+            </a>
           </div>
-          <a href="#demo" className="sec-cta-link">
-            Prefer a conversation? Book a demo <span className="arr">→</span>
+          <div className="waitlist-helper">
+            Talk process, yield, and fit with the team that built this on the floor.
+          </div>
+          <a href="#waitlist" className="sec-cta-link" onClick={smoothScrollTo("#waitlist")}>
+            Not ready yet? Join the waitlist <span className="arr">→</span>
           </a>
           <div className="stat-bar mono">
             <span>7 Live Suites</span>
@@ -1106,14 +1147,22 @@ function PricingSection() {
             <div className="badge">Most Popular</div>
             <div className="tier" style={{ color: "#F4B942" }}>Professional</div>
             <div className="pr">$999<small>/mo</small></div>
-            <p className="pos">The full operations platform with analytics and client transparency.</p>
-            <div className="forz"><span>For</span>Growing labs needing inventory, client portal, and intelligence.</div>
+            <p className="pos">
+              Full operations platform with client portal, scheduling, and cost-per-gram clarity.
+            </p>
+            <div className="forz">
+              <span>For</span>Growing labs needing inventory, client portal, and workflow.
+            </div>
           </div>
           <div className="price-card">
             <div className="tier">Enterprise</div>
             <div className="pr">$1,499<small>/mo</small></div>
-            <p className="pos">The complete smart-lab ecosystem.</p>
-            <div className="forz"><span>For</span>Multi-site operators running advanced automation.</div>
+            <p className="pos">
+              Complete smart-lab ecosystem with SolvLYTICS analytics and multi-site controls.
+            </p>
+            <div className="forz">
+              <span>For</span>Multi-site operators who need yield intelligence and advanced automation.
+            </div>
           </div>
         </div>
         <div className="every-inc">
@@ -1124,16 +1173,22 @@ function PricingSection() {
           <span><i>·</i>Email support</span>
           <span><i>·</i>Data export</span>
         </div>
+        <p className="section-sub" style={{ marginTop: 20, maxWidth: 720 }}>
+          Professional includes operational cost metrics (cost-per-gram).{" "}
+          <strong>SolvLYTICS</strong> — yield trending, technician benchmarking, and deep cost
+          drill-downs — ships on Enterprise.{" "}
+          <a href="/pricing" style={{ color: "var(--accent-amber)" }}>
+            See the full matrix →
+          </a>
+        </p>
         <div className="price-bottom-cta">
-          Access is granted via the waitlist —{" "}
-          <a
-            href="#top"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            Join now →
+          Ready to see it on your process?{" "}
+          <a href="#demo" onClick={smoothScrollTo("#demo")}>
+            Book a demo →
+          </a>
+          {" · "}
+          <a href="#waitlist" onClick={smoothScrollTo("#waitlist")}>
+            Join the waitlist →
           </a>
         </div>
       </div>
@@ -1355,23 +1410,35 @@ function FAQSection() {
 
 function FinalCTASection() {
   return (
-    <section className="final-cta reveal" id="demo">
-      <div className="final-cta-bg" />
-      <div className="final-cta-inner">
-        <h2 style={{ letterSpacing: "0px" }}>Your data shouldn&apos;t die with the batch.</h2>
-        <p>Join the waitlist. We&apos;ll reach out when a slot opens for a facility like yours.</p>
-        <WaitlistForm location="final_cta" />
-        <div style={{ marginTop: 18 }}>
-          <a
-            href="#top"
-            className="sec-cta-link"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          >
-            or join the waitlist now <span className="arr">→</span>
-          </a>
+    <>
+      <section className="final-cta reveal" id="demo">
+        <div className="final-cta-bg" />
+        <div className="final-cta-inner">
+          <h2 style={{ letterSpacing: "0px" }}>Your data shouldn&apos;t die with the batch.</h2>
+          <p>
+            Book a 30-minute facility demo. We&apos;ll walk your process — not a generic product tour.
+          </p>
+          <DemoForm location="final_cta" />
+          <div style={{ marginTop: 18 }}>
+            <a href="#waitlist" className="sec-cta-link" onClick={smoothScrollTo("#waitlist")}>
+              Not ready for a call? Join the waitlist <span className="arr">→</span>
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <section className="reveal" id="waitlist" style={{ padding: "48px 0 80px" }}>
+        <div className="container" style={{ maxWidth: 560, textAlign: "center" }}>
+          <div className="section-tag mono">// Waitlist</div>
+          <h2 className="section-h" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>
+            Prefer to join the list first?
+          </h2>
+          <p className="section-sub" style={{ margin: "0 auto 20px" }}>
+            No spam. We reach out when a slot opens for a facility like yours.
+          </p>
+          <WaitlistForm location="waitlist" />
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -1434,8 +1501,11 @@ function Footer() {
       <div className="footer-bottom">
         <div>© 2026 SolvixLMS Technologies Inc. All rights reserved.</div>
         <div className="links">
-          <a href="#disclaimers">Privacy</a>
-          <a href="#disclaimers">Terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/vs-lims">vs LIMS</a>
+          <a href="/metrc-biotrack">Metrc / BioTrack</a>
+          <a href="/solventless-yield">Solventless yield</a>
         </div>
       </div>
     </footer>

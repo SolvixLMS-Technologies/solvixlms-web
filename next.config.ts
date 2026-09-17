@@ -4,19 +4,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  async redirects() {
-    // Defense-in-depth if host headers reach Next without middleware match.
-    // Explicit 301 (not permanent:true → 308) so apex SEO signals stay on 301.
-    // Primary apex fix still requires DNS/edge to point solvixlms.com at this service.
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "solvixlms.com" }],
-        destination: "https://www.solvixlms.com/:path*",
-        statusCode: 301,
-      },
-    ];
-  },
+  // Apex → www lives in middleware.ts as an explicit 301.
+  // Do not add a next.config redirects() host rule here: permanent:true becomes
+  // 308, and even statusCode:301 was observed as 308 at runtime in Next 16.2
+  // (with IE11 Refresh header) because that layer runs before middleware.
   async headers() {
     return [
       {

@@ -13,10 +13,11 @@ export function middleware(request: NextRequest) {
   const host = (request.headers.get("host") || "").split(":")[0].toLowerCase();
 
   if (host === "solvixlms.com") {
-    const url = request.nextUrl.clone();
-    url.protocol = "https:";
-    url.host = CANONICAL_HOST;
-    return NextResponse.redirect(url, 301);
+    const dest = new URL(
+      request.nextUrl.pathname + request.nextUrl.search,
+      `https://${CANONICAL_HOST}`
+    );
+    return NextResponse.redirect(dest, 301);
   }
 
   const response = NextResponse.next();

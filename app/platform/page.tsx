@@ -114,7 +114,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <div>© 2026 SolvixLMS Technologies Inc. All rights reserved.</div>
+        <div>© 2026 SolvixLMS Technologies Inc. All rights reserved.<br />A <a className="parent-link" href="https://cyphaira.com/" target="_blank" rel="noopener noreferrer">Cyphaira Corp.</a> (OTC: CYPA) company.</div>
         <div className="links">
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>

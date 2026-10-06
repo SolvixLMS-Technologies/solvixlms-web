@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { DemoForm, WaitlistForm } from "./components/LeadForm";
 
 // ── Icon ─────────────────────────────────────────────────────────────────────
 
@@ -190,135 +191,6 @@ function Nav() {
       </div>
     </nav>
   );
-}
-
-// ── WaitlistForm ──────────────────────────────────────────────────────────────
-
-function LeadForm({
-  location = "hero",
-  intent = "waitlist",
-}: {
-  location?: string;
-  intent?: "waitlist" | "demo";
-}) {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
-  const [error, setError] = useState("");
-  const isDemo = intent === "demo";
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Enter a valid email.");
-      return;
-    }
-    setStatus("loading");
-    const source =
-      intent === "demo"
-        ? `demo_${location === "final_cta" ? "cta" : location}`
-        : location === "final_cta"
-          ? "cta"
-          : location;
-    try {
-      const res = await fetch("https://app.solvixlms.com/api/v1/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source }),
-      });
-
-      if (res.ok) {
-        (window as { dataLayer?: unknown[] }).dataLayer =
-          (window as { dataLayer?: unknown[] }).dataLayer || [];
-        ((window as { dataLayer?: unknown[] }).dataLayer as unknown[]).push({
-          event: isDemo ? "demo_request" : "waitlist_submit",
-          form_location: location,
-          form_intent: intent,
-        });
-        setStatus("success");
-        setEmail("");
-      } else if (res.status === 429) {
-        setStatus("idle");
-        setError("Too many requests. Please try again later.");
-      } else if (res.status === 400) {
-        setStatus("idle");
-        setError("Please enter a valid email address.");
-      } else {
-        setStatus("idle");
-        setError("Something went wrong. Please try again.");
-      }
-    } catch {
-      setStatus("idle");
-      setError("Unable to connect. Please try again.");
-    }
-  };
-
-  if (status === "success") {
-    return (
-      <div className="waitlist-success" role="status" aria-live="polite">
-        <span className="check">
-          <Icon name="check" size={16} stroke={2.5} />
-        </span>
-        <div>
-          <strong>{isDemo ? "Demo request received." : "You\u2019re on the list."}</strong>
-          <span>
-            {isDemo
-              ? "We'll reach out to schedule a 30-minute facility walkthrough."
-              : "We'll be in touch when a slot opens."}
-          </span>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <form
-        className="waitlist-form"
-        onSubmit={handleSubmit}
-        aria-label={isDemo ? `Demo request form (${location})` : `Waitlist form (${location})`}
-      >
-        <label htmlFor={`lead-${intent}-${location}`} style={{ position: "absolute", left: -9999 }}>
-          Email address
-        </label>
-        <input
-          id={`lead-${intent}-${location}`}
-          type="email"
-          placeholder="you@yourlab.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          disabled={status === "loading"}
-        />
-        <button type="submit" className="btn btn-solid btn-mag" disabled={status === "loading"}>
-          {status === "loading" ? (
-            isDemo ? "Sending…" : "Joining…"
-          ) : isDemo ? (
-            <>
-              Book a 30-minute facility demo <Icon name="arrow" size={16} stroke={2} />
-            </>
-          ) : (
-            <>
-              Join the Waitlist <Icon name="arrow" size={16} stroke={2} />
-            </>
-          )}
-        </button>
-      </form>
-      {error && (
-        <div className="waitlist-error" role="alert">
-          {error}
-        </div>
-      )}
-    </>
-  );
-}
-
-function WaitlistForm({ location = "hero" }: { location?: string }) {
-  return <LeadForm location={location} intent="waitlist" />;
-}
-
-function DemoForm({ location = "hero" }: { location?: string }) {
-  return <LeadForm location={location} intent="demo" />;
 }
 
 // ── DonutChart ────────────────────────────────────────────────────────────────

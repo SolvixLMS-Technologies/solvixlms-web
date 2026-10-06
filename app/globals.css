@@ -178,6 +178,7 @@ h1 {
 .waitlist-success strong { display: block; font-weight: 600; }
 .waitlist-success span { color: var(--text-muted); font-size: 13px; }
 .waitlist-error { color: #f87171; font-size: 13px; margin-top: 6px; }
+.waitlist-notice { color: var(--text-secondary); font-size: 13px; margin-top: 6px; }
 .waitlist-helper { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
 .sec-cta-link { font-size: 14px; color: var(--text-muted); display: inline-block; margin-top: 14px; transition: color .2s; }
 .sec-cta-link:hover { color: var(--accent-amber); }

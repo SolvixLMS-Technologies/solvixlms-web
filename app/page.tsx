@@ -548,9 +548,9 @@ function Hero() {
             Not ready yet? Join the waitlist <span className="arr">→</span>
           </a>
           <div className="stat-bar mono">
-            <span>7 Live Suites</span>
+            <span>One system. One data model.</span>
             <span>Built inside a live production facility</span>
-            <span>AI-Native Architecture</span>
+            <span>Parameter-depth process tracking</span>
             <span>Patent Pending</span>
           </div>
         </div>

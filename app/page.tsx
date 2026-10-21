@@ -551,7 +551,6 @@ function Hero() {
             <span>One system. One data model.</span>
             <span>Built inside a live production facility</span>
             <span>Parameter-depth process tracking</span>
-            <span>Patent Pending</span>
           </div>
         </div>
         <HeroPreview />
@@ -573,10 +572,6 @@ function Strip() {
         <div className="strip-item">
           <div className="l">Built inside</div>
           <div className="v">a live production facility</div>
-        </div>
-        <div className="strip-item">
-          <div className="l">Patent pending</div>
-          <div className="v">USPTO #63/904,128</div>
         </div>
       </div>
     </section>

@@ -1006,14 +1006,14 @@ function PricingSection() {
         <div className="price-grid">
           <div className="price-card">
             <div className="tier">Essentials</div>
-            <div className="pr">$599<small>/mo</small></div>
+            <div className="pr">$999<small>/mo</small></div>
             <p className="pos">The essential OS for sample tracking and secondary processing.</p>
             <div className="forz"><span>For</span>Small-to-mid facilities replacing spreadsheets.</div>
           </div>
           <div className="price-card popular">
             <div className="badge">Most Popular</div>
             <div className="tier" style={{ color: "#F4B942" }}>Professional</div>
-            <div className="pr">$999<small>/mo</small></div>
+            <div className="pr">$1,199<small>/mo</small></div>
             <p className="pos">
               Full operations platform with client portal, scheduling, and cost-per-gram clarity.
             </p>
@@ -1023,7 +1023,7 @@ function PricingSection() {
           </div>
           <div className="price-card">
             <div className="tier">Enterprise</div>
-            <div className="pr">$1,499<small>/mo</small></div>
+            <div className="pr">$1,799<small>/mo</small></div>
             <p className="pos">
               Complete smart-lab ecosystem with SolvLYTICS analytics and multi-site controls.
             </p>

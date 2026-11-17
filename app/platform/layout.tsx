@@ -62,9 +62,9 @@ export default function PlatformLayout({
               "Real-time command center dashboard",
             ],
             offers: [
-              { "@type": "Offer", name: "Essentials", price: "599", priceCurrency: "USD" },
-              { "@type": "Offer", name: "Professional", price: "999", priceCurrency: "USD" },
-              { "@type": "Offer", name: "Enterprise", price: "1499", priceCurrency: "USD" },
+              { "@type": "Offer", name: "Essentials", price: "999", priceCurrency: "USD" },
+              { "@type": "Offer", name: "Professional", price: "1199", priceCurrency: "USD" },
+              { "@type": "Offer", name: "Enterprise", price: "1799", priceCurrency: "USD" },
             ],
           }),
         }}

@@ -261,7 +261,7 @@ export default function PricingPage() {
               {/* Essentials */}
               <div className="price-card">
                 <div className="tier">Essentials</div>
-                <div className="pr">$999<small>/mo</small></div>
+                <div className="pr">$599<small>/mo</small></div>
                 <p className="pos">For single-site operations getting started.</p>
                 <ul className="price-feat-list">
                   <li>Unlimited users</li>
@@ -283,7 +283,7 @@ export default function PricingPage() {
               <div className="price-card popular">
                 <div className="badge">Most Popular</div>
                 <div className="tier" style={{ color: "#F4B942" }}>Professional</div>
-                <div className="pr">$1,199<small>/mo</small></div>
+                <div className="pr">$999<small>/mo</small></div>
                 <p className="pos">For facilities scaling production and client operations.</p>
                 <ul className="price-feat-list">
                   <li>Everything in Essentials</li>
@@ -305,7 +305,7 @@ export default function PricingPage() {
               {/* Enterprise */}
               <div className="price-card">
                 <div className="tier">Enterprise</div>
-                <div className="pr">$1,799<small>/mo</small></div>
+                <div className="pr">$1,499<small>/mo</small></div>
                 <p className="pos">For multi-site operators and high-volume facilities.</p>
                 <ul className="price-feat-list">
                   <li>Everything in Professional</li>

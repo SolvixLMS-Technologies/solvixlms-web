@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "SolvixLMS Pricing — Plans for Every Lab",
   description:
-    "Three plans starting at $999/month. Unlimited users on every tier. All core modules included. No per-seat charges. See what's included in Essentials, Professional, and Enterprise.",
+    "Three plans starting at $599/month. Unlimited users on every tier. All core modules included. No per-seat charges. See what's included in Essentials, Professional, and Enterprise.",
   keywords:
     "lab software pricing,LIMS pricing,lab management software cost,sample tracking plans,lab ERP pricing,compliance software cost,laboratory software subscription",
   robots: "index, follow, max-image-preview:large, max-snippet:-1",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SolvixLMS Pricing — Plans for Every Lab",
     description:
-      "Three plans from $999/mo. Unlimited users. All core modules. No per-seat pricing.",
+      "Three plans from $599/mo. Unlimited users. All core modules. No per-seat pricing.",
     url: "https://www.solvixlms.com/pricing",
     siteName: "SolvixLMS",
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SolvixLMS Pricing — Plans for Every Lab",
-    description: "Three plans from $999/mo. Unlimited users. All core modules.",
+    description: "Three plans from $599/mo. Unlimited users. All core modules.",
     images: ["https://www.solvixlms.com/og-image.png"],
   },
 };
@@ -48,6 +48,18 @@ export default function PricingLayout({ children }: { children: React.ReactNode 
               {
                 "@type": "Offer",
                 name: "Essentials",
+                price: "599",
+                priceCurrency: "USD",
+                priceSpecification: {
+                  "@type": "UnitPriceSpecification",
+                  price: "599",
+                  priceCurrency: "USD",
+                  billingDuration: "P1M",
+                },
+              },
+              {
+                "@type": "Offer",
+                name: "Professional",
                 price: "999",
                 priceCurrency: "USD",
                 priceSpecification: {
@@ -59,24 +71,12 @@ export default function PricingLayout({ children }: { children: React.ReactNode 
               },
               {
                 "@type": "Offer",
-                name: "Professional",
-                price: "1199",
-                priceCurrency: "USD",
-                priceSpecification: {
-                  "@type": "UnitPriceSpecification",
-                  price: "1199",
-                  priceCurrency: "USD",
-                  billingDuration: "P1M",
-                },
-              },
-              {
-                "@type": "Offer",
                 name: "Enterprise",
-                price: "1799",
+                price: "1499",
                 priceCurrency: "USD",
                 priceSpecification: {
                   "@type": "UnitPriceSpecification",
-                  price: "1799",
+                  price: "1499",
                   priceCurrency: "USD",
                   billingDuration: "P1M",
                 },

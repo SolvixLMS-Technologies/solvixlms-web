@@ -82,8 +82,8 @@ const jsonLd = {
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "USD",
-        lowPrice: "999",
-        highPrice: "1799",
+        lowPrice: "599",
+        highPrice: "1499",
         offerCount: "3",
         url: "https://www.solvixlms.com/pricing",
       },
